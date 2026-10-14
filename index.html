@@ -1,0 +1,515 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><style>img{max-width:100%}[hidden]{display:none!important}body{margin:0}</style>
+<title>ABS Consult</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%231D2028%22/%3E%3Ctext x=%2216%22 y=%2221%22 font-family=%22Arial%22 font-size=%2212%22 font-weight=%22700%22 fill=%22%23F5F4F0%22 text-anchor=%22middle%22%3EABS%3C/text%3E%3C/svg%3E">
+<meta name="description" content="ABS Consult · Andreas Schulz: Strategische Beratung für Verlage, Reiseunternehmen und Technologiepartner.">
+<style>
+@font-face{font-family:"Hanken Grotesk"; src:url("fonts/hanken-grotesk-latin-300-normal.woff2") format("woff2"); font-weight:300; font-display:swap}
+@font-face{font-family:"Hanken Grotesk"; src:url("fonts/hanken-grotesk-latin-400-normal.woff2") format("woff2"); font-weight:400; font-display:swap}
+@font-face{font-family:"Hanken Grotesk"; src:url("fonts/hanken-grotesk-latin-500-normal.woff2") format("woff2"); font-weight:500; font-display:swap}
+@font-face{font-family:"Hanken Grotesk"; src:url("fonts/hanken-grotesk-latin-600-normal.woff2") format("woff2"); font-weight:600; font-display:swap}
+
+/* Layout: ruhige helle Fläche, wenig Text, gezielte Bewegung an wenigen Stellen. Bewusst ein helles Erscheinungsbild. */
+:root{
+  --bg:#F5F4F0; --band:#ECE9E2; --paper:#FFFFFF; --ink:#1D2028; --muted:#686C75; --line:#DDD9D0;
+  --navy:#1C2336; --navy-ink:#E9EBF0; --navy-muted:#A3A9B8; --navy-line:rgba(255,255,255,.14);
+  --brass:#A88B5C; --brass-light:#CDB386;
+  --font:"Hanken Grotesk", "Helvetica Neue", Arial, system-ui, sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+img{max-width:100%; height:auto}
+html{scroll-behavior:smooth}
+body{background:var(--bg); color:var(--ink); font-family:var(--font); font-size:17px; line-height:1.6; overflow-x:hidden}
+h1,h2,h3{font-weight:300; line-height:1.12; letter-spacing:-.015em; margin:0; text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--brass); outline-offset:3px; border-radius:6px}
+.wrap{max-width:1120px; margin-inline:auto; padding-inline:clamp(16px,4vw,40px)}
+.eyebrow{display:flex; align-items:center; gap:12px; font-size:12px; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:var(--brass)}
+.eyebrow::before{content:""; width:28px; height:1px; background:currentColor}
+section{padding-block:clamp(72px,10vw,128px)}
+h2{font-size:clamp(32px,4.2vw,50px); margin-top:16px}
+.band{background:var(--band)}
+
+.pill{display:inline-flex; align-items:center; gap:10px; padding:12px 22px; border-radius:999px; background:var(--ink); color:var(--bg); text-decoration:none; font-size:14px; font-weight:500; border:1px solid var(--ink); white-space:nowrap; transition:transform .2s ease, background .2s ease}
+.pill:hover{transform:translateY(-1px); background:#000}
+.pill .arr{transition:transform .2s ease}
+.pill:hover .arr{transform:translateX(3px)}
+.pill.ghost{background:transparent; color:var(--ink); border-color:var(--line)}
+.pill.ghost:hover{border-color:var(--ink)}
+
+header{position:sticky; top:env(safe-area-inset-top,0px); z-index:20; background:color-mix(in srgb,var(--bg) 88%,transparent); backdrop-filter:saturate(1.2) blur(10px); border-bottom:1px solid transparent; transition:border-color .3s}
+header.scrolled{border-bottom-color:var(--line)}
+.bar{display:flex; align-items:center; justify-content:space-between; gap:20px; padding-block:14px}
+.brand{text-decoration:none; line-height:1}
+.brand b{display:block; font-weight:600; font-size:20px; letter-spacing:.03em}
+.brand b em{font-style:normal; font-weight:300; letter-spacing:0}
+.brand span{display:block; font-size:10px; letter-spacing:.26em; text-transform:uppercase; color:var(--muted); margin-top:5px}
+.bar nav{display:flex; gap:28px}
+.bar nav a{text-decoration:none; font-size:14px; color:var(--muted); position:relative; padding-block:4px}
+.bar nav a::after{content:""; position:absolute; left:0; right:0; bottom:-2px; height:1px; background:var(--brass); transform:scaleX(0); transform-origin:left; transition:transform .25s ease}
+.bar nav a:hover,.bar nav a.active{color:var(--ink)}
+.bar nav a:hover::after,.bar nav a.active::after{transform:scaleX(1)}
+
+.hero{display:grid; grid-template-columns:1.15fr .85fr; gap:clamp(32px,6vw,80px); align-items:center; padding-block:clamp(48px,8vw,104px) clamp(56px,8vw,96px)}
+.hero > *{min-width:0}
+.hero h1{font-size:clamp(42px,6.4vw,76px)}
+.rotator{display:block; margin-top:14px; font-size:clamp(22px,2.6vw,30px); font-weight:300; color:var(--muted)}
+.rotator .slot{display:inline-grid; vertical-align:bottom; overflow:hidden; height:1.3em; line-height:1.3em}
+.rotator .slot span{grid-area:1/1; color:var(--ink); font-weight:400; transition:transform .6s cubic-bezier(.2,.7,.2,1), opacity .6s}
+.rotator .slot span:not(.on){transform:translateY(110%); opacity:0}
+.rotator .slot span.out{transform:translateY(-110%); opacity:0}
+.hero .lead{margin-top:26px; font-size:18px; color:var(--muted); max-width:40ch}
+.actions{display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-top:34px}
+.portrait{position:relative; margin:0}
+.portrait img{display:block; width:100%; aspect-ratio:4/5; object-fit:cover; object-position:50% 16%; border-radius:6px}
+.badge{position:absolute; background:var(--paper); border:1px solid var(--line); border-radius:10px; padding:12px 16px; box-shadow:0 10px 30px -12px rgba(29,32,40,.25); font-size:13px; line-height:1.35; max-width:220px; color:var(--muted)}
+.badge b{display:block; font-size:22px; font-weight:400; letter-spacing:-.01em; color:var(--ink)}
+.badge.b1{left:-28px; bottom:44px}
+.badge.b2{right:-18px; top:36px}
+@media (prefers-reduced-motion:no-preference){
+  .badge{animation:float 7s ease-in-out infinite}
+  .badge.b2{animation-delay:-3.5s}
+  @keyframes float{50%{transform:translateY(-8px)}}
+}
+
+.ticker{background:var(--band); border-block:1px solid var(--line); overflow:hidden; padding-block:18px}
+.track{display:flex; width:max-content}
+.track span{font-size:clamp(18px,2vw,22px); font-weight:300; padding-left:28px; white-space:nowrap; display:flex; align-items:center; gap:28px}
+.track span::after{content:""; width:6px; height:6px; border-radius:50%; background:var(--brass)}
+@media (prefers-reduced-motion:no-preference){
+  .track{animation:marquee 40s linear infinite}
+  .ticker:hover .track{animation-play-state:paused}
+  @keyframes marquee{to{transform:translateX(-50%)}}
+}
+
+.tabs{display:flex; gap:8px; flex-wrap:wrap; margin-top:36px}
+.tab{font:inherit; font-size:15px; padding:11px 20px; border-radius:999px; border:1px solid var(--line); background:transparent; color:var(--muted); cursor:pointer; transition:all .25s}
+.tab:hover{color:var(--ink); border-color:var(--ink)}
+.tab[aria-selected="true"]{background:var(--ink); color:var(--bg); border-color:var(--ink)}
+.panels{margin-top:28px}
+.panel{display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,5vw,64px); align-items:center; background:var(--paper); border:1px solid var(--line); border-radius:10px; padding:clamp(24px,4vw,48px)}
+.panel > *{min-width:0}
+.panel.enter{animation:enter .45s ease both}
+@keyframes enter{from{opacity:.2; transform:translateY(10px)}}
+.panel h3{font-size:clamp(26px,3vw,36px)}
+.panel p{margin-top:16px; color:var(--muted); max-width:42ch}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin:24px 0 0; padding:0; list-style:none}
+.chips li{font-size:13px; padding:6px 13px; border:1px solid var(--line); border-radius:999px}
+.panel figure{margin:0}
+.panel img{display:block; width:100%; max-height:420px; aspect-ratio:4/3; object-fit:cover; object-position:50% 35%; border-radius:6px}
+.mini-steps{list-style:none; padding:0; margin:0; counter-reset:s}
+.mini-steps li{display:grid; grid-template-columns:44px 1fr; align-items:baseline; padding:16px 0; border-top:1px solid var(--line); font-size:19px; font-weight:300; counter-increment:s}
+.mini-steps li::before{content:"0" counter(s); font-size:13px; color:var(--brass); font-weight:500}
+.mini-steps li:last-child{border-bottom:1px solid var(--line)}
+
+.dark{background:var(--navy); color:var(--navy-ink)}
+.dark .eyebrow{color:var(--brass-light)}
+.flow{position:relative; display:grid; grid-template-columns:repeat(3,1fr); margin-top:clamp(48px,7vw,80px)}
+.flow::before{content:""; position:absolute; left:16.66%; right:16.66%; top:38px; height:1px; background:var(--navy-line)}
+.dot{position:absolute; top:34px; left:16.66%; width:9px; height:9px; margin-left:-4px; border-radius:50%; background:var(--brass-light); box-shadow:0 0 0 6px rgba(205,179,134,.18); display:none; z-index:0}
+.node{text-align:center; position:relative; padding-inline:12px}
+.ring{width:76px; height:76px; margin:0 auto; border-radius:50%; border:1px solid var(--navy-line); display:grid; place-items:center; background:var(--navy); position:relative; z-index:1}
+.ring svg{width:30px; height:30px; stroke:var(--navy-ink); fill:none; stroke-width:1.3}
+.node h3{font-size:clamp(20px,2.2vw,26px); margin-top:20px}
+.node p{font-size:14px; color:var(--navy-muted); margin-top:6px}
+@media (prefers-reduced-motion:no-preference){
+  .dot{display:block; animation:travel 6s cubic-bezier(.6,0,.4,1) infinite}
+  @keyframes travel{0%,6%{left:16.66%} 40%,52%{left:50%} 88%,100%{left:83.33%}}
+  .node .ring{animation:pulse 6s infinite}
+  .node:nth-of-type(2) .ring{animation-delay:2.4s}
+  .node:nth-of-type(3) .ring{animation-delay:5.3s}
+  @keyframes pulse{0%,10%{border-color:var(--brass-light)} 22%,100%{border-color:var(--navy-line)}}
+}
+.proof{margin-top:clamp(48px,7vw,72px); padding-top:28px; border-top:1px solid var(--navy-line); display:flex; gap:clamp(20px,4vw,48px); flex-wrap:wrap; align-items:baseline}
+.proof p{color:var(--navy-muted); max-width:52ch; font-size:15px}
+.proof b{font-weight:300; font-size:clamp(36px,4.4vw,52px); color:var(--navy-ink); font-variant-numeric:tabular-nums}
+
+.facts{display:grid; grid-template-columns:repeat(3,1fr); margin-top:44px; border-top:1px solid var(--line)}
+.fact{padding:30px 24px 0 0; min-width:0}
+.fact + .fact{padding-left:24px; border-left:1px solid var(--line)}
+.fact b{display:block; font-weight:300; font-size:clamp(44px,6vw,72px); line-height:1; font-variant-numeric:tabular-nums; letter-spacing:-.02em}
+.fact > span{display:block; margin-top:14px; font-size:15px; color:var(--muted); max-width:28ch}
+
+.timeline{position:relative; display:grid; grid-template-columns:repeat(5,1fr); margin-top:72px}
+.timeline::before,.timeline .fill{content:""; position:absolute; left:0; right:0; top:7px; height:1px; background:var(--line)}
+.timeline .fill{background:var(--brass); transform-origin:left}
+@supports (animation-timeline: view()){
+  @media (prefers-reduced-motion:no-preference){
+    .timeline .fill{animation:fillx linear both; animation-timeline:view(); animation-range:entry 30% cover 50%}
+    @keyframes fillx{from{transform:scaleX(0)}}
+  }
+}
+.stop{position:relative; padding-right:16px; min-width:0}
+.stop::before{content:""; display:block; width:15px; height:15px; border-radius:50%; background:var(--bg); border:1px solid var(--brass); position:relative; z-index:1}
+.stop.now::before{background:var(--brass)}
+.stop .y{display:block; margin-top:18px; font-size:13px; letter-spacing:.08em; color:var(--brass); font-weight:500}
+.stop h3{font-size:18px; font-weight:400; margin-top:6px; line-height:1.3}
+
+.press{display:grid; grid-template-columns:1fr 1.1fr; gap:clamp(32px,6vw,80px); align-items:center}
+.press > *{min-width:0}
+.thumb{display:block; padding:0; border:1px solid var(--line); border-radius:8px; overflow:hidden; cursor:zoom-in; background:var(--paper); position:relative; width:100%; font:inherit}
+.thumb img{display:block; width:100%; transition:transform .5s ease}
+.thumb:hover img{transform:scale(1.03)}
+.thumb span{position:absolute; right:12px; bottom:12px; background:var(--paper); color:var(--ink); border-radius:999px; padding:6px 12px; font-size:12px}
+blockquote{margin:16px 0 0; font-size:clamp(26px,3.2vw,38px); font-weight:300; line-height:1.25; text-wrap:balance}
+.src{margin-top:12px; font-size:14px; color:var(--muted)}
+.links{list-style:none; padding:0; margin:30px 0 0}
+.links a{display:flex; justify-content:space-between; gap:16px; padding:15px 0; border-top:1px solid var(--line); text-decoration:none; font-size:15px; transition:padding .25s}
+.links a:hover{padding-left:8px}
+.links a span:last-child{color:var(--muted); white-space:nowrap; font-size:13px}
+dialog{border:0; padding:0; background:transparent; max-width:min(1200px,94vw)}
+dialog::backdrop{background:rgba(20,22,28,.82)}
+dialog img{display:block; width:100%; border-radius:6px}
+dialog button{position:absolute; top:10px; right:10px; font:inherit; font-size:13px; border:0; border-radius:999px; padding:8px 14px; background:var(--paper); color:var(--ink); cursor:pointer}
+
+.contact{background:var(--navy); color:var(--navy-ink); border-radius:14px; padding:clamp(32px,6vw,72px); display:grid; grid-template-columns:1.2fr 1fr; gap:clamp(28px,5vw,64px); align-items:end}
+.contact > *{min-width:0}
+.contact .eyebrow{color:var(--brass-light)}
+.contact .pill{background:var(--navy-ink); color:var(--navy); border-color:var(--navy-ink)}
+.contact .pill.ghost{background:transparent; color:var(--navy-ink); border-color:var(--navy-line)}
+.contact .pill.ghost:hover{border-color:var(--navy-ink)}
+.cinfo{display:grid; gap:18px; font-size:16px}
+.cinfo .k{display:block; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--navy-muted); margin-bottom:2px}
+.cinfo a{text-decoration:none; overflow-wrap:anywhere}
+.cinfo a:hover{text-decoration:underline; text-underline-offset:4px}
+.copy-btn{font:inherit; font-size:12px; color:var(--navy-muted); background:transparent; border:1px solid var(--navy-line); border-radius:999px; padding:3px 11px; cursor:pointer; margin-left:8px}
+.copy-btn:hover{color:var(--navy-ink); border-color:var(--navy-ink)}
+
+.legal{border-top:1px solid var(--line); margin-top:clamp(56px,8vw,96px)}
+.legal details{border-bottom:1px solid var(--line)}
+.legal summary{cursor:pointer; padding:16px 0; font-size:15px; font-weight:500}
+.legal .body{padding:0 0 24px; max-width:72ch; font-size:14px; color:var(--muted); display:grid; gap:10px}
+.legal h3{font-size:14px; font-weight:600; color:var(--ink); margin-top:6px; letter-spacing:0}
+footer{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; padding-block:24px 8px; font-size:13px; color:var(--muted)}
+footer nav{display:flex; gap:18px}
+footer a{text-decoration:none}
+footer a:hover{color:var(--ink)}
+
+@supports (animation-timeline: view()){
+  @media (prefers-reduced-motion:no-preference){
+    .reveal{animation:rise linear both; animation-timeline:view(); animation-range:entry 0% entry 35%}
+    @keyframes rise{from{opacity:.25; transform:translateY(24px)}}
+  }
+}
+
+@media (max-width:900px){
+  .bar nav{display:none}
+  .hero,.panel,.press,.contact{grid-template-columns:1fr}
+  .portrait{max-width:440px}
+  .portrait img{aspect-ratio:1/1; object-position:50% 22%}
+  .badge.b1{left:12px} .badge.b2{right:12px}
+  .facts{grid-template-columns:1fr}
+  .fact,.fact + .fact{padding:24px 0; border-left:0}
+  .fact + .fact{border-top:1px solid var(--line)}
+  .timeline{grid-template-columns:1fr; gap:22px; padding-left:30px; margin-top:52px}
+  .timeline::before,.timeline .fill{left:7px; right:auto; top:0; bottom:0; width:1px; height:auto}
+  .timeline .fill{transform-origin:top}
+  @supports (animation-timeline: view()){ @media (prefers-reduced-motion:no-preference){ .timeline .fill{animation-name:filly} @keyframes filly{from{transform:scaleY(0)}} } }
+  .stop{padding-right:0}
+  .stop::before{position:absolute; left:-30px; top:3px}
+  .stop .y{margin-top:0}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .bar .pill{padding:9px 14px; font-size:13px}
+  .flow{grid-template-columns:1fr; gap:0; margin-top:40px}
+  .flow::before{left:28px; right:auto; top:28px; bottom:28px; width:1px; height:auto}
+  .node{display:grid; grid-template-columns:56px 1fr; column-gap:20px; align-items:center; text-align:left; padding:0 0 28px}
+  .node:last-of-type{padding-bottom:0}
+  .ring{width:56px; height:56px; margin:0; grid-row:span 2}
+  .ring svg{width:24px; height:24px}
+  .node h3{margin-top:0; font-size:21px; align-self:end}
+  .node p{margin-top:2px; align-self:start}
+  .dot{left:28px; top:28px}
+  @media (prefers-reduced-motion:no-preference){
+    .dot{animation-name:travely}
+    @keyframes travely{0%,6%{top:24px} 40%,52%{top:calc(50% - 18px)} 88%,100%{top:calc(100% - 32px)}}
+  }
+  .proof{display:grid; grid-template-columns:auto 1fr; gap:16px; align-items:center; background:rgba(255,255,255,.05); border:1px solid var(--navy-line); border-radius:10px; padding:18px 20px; margin-top:40px}
+  .proof b{font-size:34px}
+  .proof p{font-size:14px}
+  .badge{position:static; margin-top:12px; max-width:none; animation:none!important}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+
+</head><body>
+<header id="top">
+  <div class="wrap bar">
+    <a class="brand" href="#start" aria-label="ABS Consult, Startseite"><b>ABS <em>Consult</em></b><span>Andreas Schulz</span></a>
+    <nav aria-label="Seitennavigation">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#modell">Modell</a>
+      <a href="#erfahrung">Erfahrung</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <a class="pill" href="#kontakt">Gespräch vereinbaren <span class="arr" aria-hidden="true">→</span></a>
+  </div>
+</header>
+
+<main id="start">
+  <div class="wrap hero">
+    <div>
+      <p class="eyebrow">Strategische Beratung</p>
+      <h1 style="margin-top:18px">Aus Inhalten werden Märkte.</h1>
+      <p class="rotator">Für <span class="slot" id="rot"><span class="on">Verlage</span><span>Reiseunternehmen</span><span>Technologiepartner</span></span></p>
+      <p class="lead">Ich bringe Content, Touristik und Technologie zusammen. Für neue Erlöse ohne Neuproduktion.</p>
+      <div class="actions">
+        <a class="pill" href="#kontakt">Gespräch vereinbaren <span class="arr" aria-hidden="true">→</span></a>
+        <a class="pill ghost" href="#leistungen">Leistungen</a>
+      </div>
+    </div>
+    <figure class="portrait">
+      <img src="img/portrait.jpg" alt="Porträt von Andreas Schulz" width="900" height="1084">
+      <div class="badge b2"><b>40+ Jahre</b>Verlag und Touristik</div>
+      <div class="badge b1"><b>TourCont AG</b>Aufsichtsratsvorsitzender</div>
+    </figure>
+  </div>
+
+  <div class="ticker" aria-label="Themen">
+    <div class="track">
+      <span>Content-Monetarisierung</span><span>B2B-Lizenzen</span><span>Reise-Apps</span><span>Go-to-Market</span><span>Partnervermittlung</span><span>Digital Publishing</span><span>Business Development</span>
+      <span aria-hidden="true">Content-Monetarisierung</span><span aria-hidden="true">B2B-Lizenzen</span><span aria-hidden="true">Reise-Apps</span><span aria-hidden="true">Go-to-Market</span><span aria-hidden="true">Partnervermittlung</span><span aria-hidden="true">Digital Publishing</span><span aria-hidden="true">Business Development</span>
+    </div>
+  </div>
+
+  <section id="leistungen">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">Leistungen</p>
+        <h2>Drei Branchen. Ein Ansprechpartner.</h2>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Zielgruppen">
+        <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="true">Verlage</button>
+        <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1">Reiseunternehmen</button>
+        <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1">Technologiepartner</button>
+      </div>
+      <div class="panels">
+        <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1">
+          <div>
+            <h3>Gute Inhalte verdienen mehr als eine Auflage.</h3>
+            <p>Ich mache aus Ihrem Bestand lizenzierbare Assets und finde die Abnehmer dafür.</p>
+            <ul class="chips"><li>Content-Monetarisierung</li><li>B2B-Lizenzen</li><li>Digitalisierung</li><li>Neue Vertriebswege</li></ul>
+          </div>
+          <figure><img src="img/1000places.jpg" alt="Andreas Schulz mit Bänden der Reihe 1000 Places to see before you die" width="768" height="1024"></figure>
+        </div>
+        <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+          <div>
+            <h3>Die richtigen Infos für genau diese Reise.</h3>
+            <p>Qualitätsinhalte für Ihre Buchungsunterlagen und Apps, rechtssicher lizenziert.</p>
+            <ul class="chips"><li>Reise-Content</li><li>White-Label-App</li><li>Kundenerlebnis</li><li>Reiseprodukte</li></ul>
+          </div>
+          <ol class="mini-steps"><li>Inhalte auswählen</li><li>Mit Buchungsdaten verbinden</li><li>In Ihrer App ausspielen</li></ol>
+        </div>
+        <div class="panel" role="tabpanel" id="p3" aria-labelledby="t3" hidden>
+          <div>
+            <h3>Gute Software braucht Zugang zur Branche.</h3>
+            <p>Ich öffne Türen zu Verlagen und Touristik und begleite bis zum Auftrag.</p>
+            <ul class="chips"><li>Marktzugang</li><li>Go-to-Market</li><li>C-Level-Kontakte</li><li>Vertrieb</li></ul>
+          </div>
+          <ol class="mini-steps"><li>Branche verstehen</li><li>Kontakte öffnen</li><li>Projekt aufsetzen</li><li>Vertrieb begleiten</li></ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="modell" class="dark">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">Das Modell</p>
+        <h2>Vom Buch in die App.</h2>
+      </div>
+      <div class="flow" aria-label="Ablauf in drei Schritten">
+        <span class="dot" aria-hidden="true"></span>
+        <div class="node">
+          <div class="ring"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 7h9a3 3 0 0 1 3 3v16a2 2 0 0 0-2-2H5zM27 7h-9a3 3 0 0 0-3 3v16a2 2 0 0 1 2-2h10z"/></svg></div>
+          <h3>Reiseführer</h3><p>Bestehende Verlagsinhalte</p>
+        </div>
+        <div class="node">
+          <div class="ring"><svg viewBox="0 0 32 32" aria-hidden="true"><ellipse cx="16" cy="8" rx="9" ry="3.5"/><path d="M7 8v16c0 2 4 3.5 9 3.5s9-1.5 9-3.5V8M7 16c0 2 4 3.5 9 3.5s9-1.5 9-3.5"/></svg></div>
+          <h3>Datenbank</h3><p>Medienneutral und lizenziert</p>
+        </div>
+        <div class="node">
+          <div class="ring"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="10" y="4" width="12" height="24" rx="2.5"/><path d="M14 24h4"/></svg></div>
+          <h3>Reise-App</h3><p>Passend zur einzelnen Reise</p>
+        </div>
+      </div>
+      <div class="proof">
+        <b><span class="count" data-to="50000" data-suffix="+">50.000+</span></b>
+        <p>Auslieferungen der App „FRED“ von Donau Touristik auf Basis der TourCont AG.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="erfahrung">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">Erfahrung</p>
+        <h2>Ergebnisse, die zählen.</h2>
+      </div>
+      <div class="facts">
+        <div class="fact"><b><span class="count" data-to="1" data-suffix=" Mio.+">1 Mio.+</span></b><span>verkaufte Exemplare von „1000 Places“ im deutschsprachigen Raum</span></div>
+        <div class="fact"><b><span class="count" data-to="20" data-suffix="+">20+</span></b><span>Jahre Premium Partner von DER Touristik</span></div>
+        <div class="fact"><b><span class="count" data-to="2" data-suffix=" Mio.">2 Mio.</span></b><span>Exemplare Jahresauflage für Großfläche und Discount</span></div>
+      </div>
+      <div class="timeline" aria-label="Werdegang">
+        <span class="fill" aria-hidden="true"></span>
+        <div class="stop"><span class="y">1972</span><h3>DuMont Buchverlag</h3></div>
+        <div class="stop"><span class="y">1977</span><h3>Gründung Vista Point</h3></div>
+        <div class="stop"><span class="y">2007</span><h3>1000 Places für D-A-CH</h3></div>
+        <div class="stop"><span class="y">2020</span><h3>TourCont AG</h3></div>
+        <div class="stop now"><span class="y">Heute</span><h3>ABS Consult</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap press">
+      <button class="thumb" type="button" id="open-press" aria-label="Börsenblatt-Artikel vergrößern">
+        <img src="img/boersenblatt-2019.jpg" alt="Doppelseite aus dem Börsenblatt 35/2019 mit einem Porträt von Andreas Schulz" width="1400" height="1050">
+        <span>Vergrößern</span>
+      </button>
+      <div>
+        <p class="eyebrow">Presse</p>
+        <blockquote>„Wir versuchen über unsere bekannteste Marke Sichtbarkeit zu erzeugen.“</blockquote>
+        <p class="src">Börsenblatt 35/2019</p>
+        <ul class="links">
+          <li><a href="https://www.boersenblatt.net/news/verlage-news/mit-digitalem-baukasten-auf-die-reise-gehen-171371" target="_blank" rel="noopener"><span>Mit digitalem Baukasten auf die Reise gehen</span><span>Börsenblatt ↗</span></a></li>
+          <li><a href="https://www.fvw.de/touristik/veranstalter/reiseapp-travel-companion-so-liefern-reiseveranstalter-digitalen-mehrwert-246087" target="_blank" rel="noopener"><span>Veranstalter sollen mit neuer App punkten</span><span>fvw ↗</span></a></li>
+          <li><a href="https://www.tourcont.ag/" target="_blank" rel="noopener"><span>TourCont AG</span><span>tourcont.ag ↗</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <dialog id="press-dialog" aria-label="Börsenblatt-Artikel">
+    <button type="button" id="close-press">Schließen</button>
+    <img src="img/boersenblatt-2019.jpg" alt="Doppelseite aus dem Börsenblatt 35/2019" width="1400" height="1050">
+  </dialog>
+
+  <section id="kontakt">
+    <div class="wrap">
+      <div class="contact reveal">
+        <div>
+          <p class="eyebrow">Kontakt</p>
+          <h2>Sprechen wir über Ihre Inhalte.</h2>
+          <div class="actions">
+            <a class="pill" href="mailto:abs.schulz@web.de">E-Mail schreiben <span class="arr" aria-hidden="true">→</span></a>
+            <a class="pill ghost" href="https://www.linkedin.com/in/andreas-schulz-23a8a221/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+        <div class="cinfo">
+          <div><span class="k">E-Mail</span><a href="mailto:abs.schulz@web.de" id="mail">abs.schulz@web.de</a><button class="copy-btn" type="button" id="copy-mail">Kopieren</button></div>
+          <div><span class="k">Standort</span>Köln, Einsatz deutschlandweit</div>
+        </div>
+      </div>
+
+      <div class="legal">
+        <details id="impressum">
+          <summary>Impressum</summary>
+          <div class="body">
+            <h3>Angaben gemäß § 5 DDG</h3>
+            <p>ABS Consult<br>Andreas Schulz<br>Markomannenstraße 18<br>50679 Köln</p>
+            <h3>Kontakt</h3>
+            <p>E-Mail: abs.schulz@web.de</p>
+            <h3>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3>
+            <p>Andreas Schulz, Anschrift wie oben</p>
+          </div>
+        </details>
+        <details id="datenschutz">
+          <summary>Datenschutz</summary>
+          <div class="body">
+            <h3>Verantwortlicher</h3>
+            <p>Andreas Schulz, Markomannenstraße 18, 50679 Köln, abs.schulz@web.de</p>
+            <h3>Hosting und Aufruf der Website</h3>
+            <p>Diese Website wird bei Netlify, Inc., 101 2nd Street, San Francisco, CA 94105, USA gehostet. Beim Aufruf verarbeitet Netlify technisch notwendige Daten wie IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Seite und Browsertyp in Server-Logfiles. Das dient dem sicheren und stabilen Betrieb der Seite. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.</p>
+            <p>Netlify ist nach dem EU-US Data Privacy Framework zertifiziert. Die Übermittlung von Daten in die USA stützt sich auf den Angemessenheitsbeschluss der EU-Kommission. Weitere Informationen finden Sie in der Datenschutzerklärung von Netlify unter netlify.com/privacy.</p>
+            <h3>Keine Cookies, kein Tracking</h3>
+            <p>Diese Website setzt keine Cookies und verwendet keine Analyse- oder Trackingdienste. Die Schriften sind lokal eingebunden, es wird keine Verbindung zu Drittanbietern wie Google Fonts aufgebaut.</p>
+            <h3>Kontakt per E-Mail</h3>
+            <p>Wenn Sie mir eine E-Mail schreiben, verarbeite ich Ihre Angaben ausschließlich zur Bearbeitung Ihrer Anfrage. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b oder f DSGVO.</p>
+            <h3>Externe Links</h3>
+            <p>Die Seite enthält Links zu LinkedIn und zu Presseartikeln. Erst wenn Sie einen Link anklicken, gelten die Datenschutzbestimmungen des jeweiligen Anbieters.</p>
+            <h3>Ihre Rechte</h3>
+            <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Außerdem können Sie sich bei einer Datenschutz-Aufsichtsbehörde beschweren, in Nordrhein-Westfalen bei der Landesbeauftragten für Datenschutz und Informationsfreiheit NRW.</p>
+          </div>
+        </details>
+      </div>
+      <footer>
+        <span>© 2026 ABS Consult · Andreas Schulz</span>
+        <nav aria-label="Rechtliches"><a href="#impressum" data-open="impressum">Impressum</a><a href="#datenschutz" data-open="datenschutz">Datenschutz</a></nav>
+      </footer>
+    </div>
+  </section>
+</main>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var header = document.getElementById('top');
+  addEventListener('scroll', function(){ header.classList.toggle('scrolled', scrollY > 8); }, {passive:true});
+
+  var words = document.querySelectorAll('#rot span'); var i = 0;
+  if (!reduce) setInterval(function(){
+    var cur = words[i]; i = (i + 1) % words.length; var nxt = words[i];
+    cur.classList.remove('on'); cur.classList.add('out');
+    nxt.classList.remove('out'); nxt.classList.add('on');
+    setTimeout(function(){ cur.classList.remove('out'); }, 650);
+  }, 2600);
+
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+  function select(t){
+    tabs.forEach(function(x){
+      var on = x === t; x.setAttribute('aria-selected', on ? 'true' : 'false'); x.tabIndex = on ? 0 : -1;
+      var p = document.getElementById(x.getAttribute('aria-controls'));
+      p.hidden = !on; if (on){ p.classList.remove('enter'); void p.offsetWidth; p.classList.add('enter'); }
+    });
+  }
+  tabs.forEach(function(t, k){
+    t.addEventListener('click', function(){ select(t); });
+    t.addEventListener('keydown', function(e){
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft'){
+        var n = tabs[(k + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length]; n.focus(); select(n);
+      }
+    });
+  });
+
+  if (!reduce && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (!en.isIntersecting) return; io.unobserve(en.target);
+        var el = en.target, to = +el.dataset.to, suf = el.dataset.suffix || '', t0 = null, d = 1400;
+        function step(ts){ if (!t0) t0 = ts; var p = Math.min((ts - t0) / d, 1), e = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(to * e).toLocaleString('de-DE') + suf; if (p < 1) requestAnimationFrame(step); }
+        requestAnimationFrame(step);
+      });
+    }, {threshold:.6});
+    document.querySelectorAll('.count').forEach(function(c){ io.observe(c); });
+
+    var links = document.querySelectorAll('.bar nav a');
+    var so = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting) links.forEach(function(l){ l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id); }); });
+    }, {rootMargin:'-45% 0px -50% 0px'});
+    ['leistungen','modell','erfahrung','kontakt'].forEach(function(id){ var s = document.getElementById(id); if (s) so.observe(s); });
+  }
+
+  var dlg = document.getElementById('press-dialog');
+  document.getElementById('open-press').addEventListener('click', function(){ if (dlg.showModal) dlg.showModal(); });
+  document.getElementById('close-press').addEventListener('click', function(){ dlg.close(); });
+  dlg.addEventListener('click', function(e){ if (e.target === dlg) dlg.close(); });
+
+  document.querySelectorAll('[data-open]').forEach(function(a){
+    a.addEventListener('click', function(){ var d = document.getElementById(a.dataset.open); if (d) d.open = true; });
+  });
+  if (location.hash === '#impressum' || location.hash === '#datenschutz'){ var d = document.getElementById(location.hash.slice(1)); if (d) d.open = true; }
+
+  var btn = document.getElementById('copy-mail');
+  btn.addEventListener('click', function(){
+    function done(){ btn.textContent = 'Kopiert'; setTimeout(function(){ btn.textContent = 'Kopieren'; }, 1800); }
+    function fallback(){ var r = document.createRange(); r.selectNodeContents(document.getElementById('mail')); var s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+    try { navigator.clipboard.writeText('abs.schulz@web.de').then(done, fallback); } catch(e){ fallback(); }
+  });
+})();
+</script>
+</body></html>
