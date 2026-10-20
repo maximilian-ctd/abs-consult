@@ -301,6 +301,21 @@ footer a:hover{color:var(--ink)}
   .contact{padding:28px 22px}
   .cinfo{font-size:15px}
 }
+
+.indep{margin-top:20px; font-size:14.5px; color:var(--navy-muted)}
+/* Ablauf */
+#ablauf{padding-bottom:0}
+.how{list-style:none; padding:0; margin:40px 0 0; display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--line)}
+.how li{padding:26px 24px 8px 0; min-width:0}
+.how li + li{padding-left:24px; border-left:1px solid var(--line)}
+.how .n{font-size:13px; font-weight:500; color:var(--brass); letter-spacing:.08em}
+.how h3{font-size:24px; margin:10px 0 8px}
+.how p{color:var(--muted); font-size:15.5px; max-width:34ch}
+@media (max-width:760px){
+  .how{grid-template-columns:1fr}
+  .how li,.how li + li{padding:20px 0; border-left:0}
+  .how li + li{border-top:1px solid var(--line)}
+}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 
@@ -336,7 +351,7 @@ footer a:hover{color:var(--ink)}
       <p class="eyebrow">Strategische Beratung</p>
       <h1 style="margin-top:18px">Aus Inhalten werden Märkte.</h1>
       <p class="rotator">Für <span class="slot" id="rot"><span class="on">Verlage</span><span>Reiseunternehmen</span><span>Technologiepartner</span></span></p>
-      <p class="lead">Ich bringe Content, Touristik und Technologie zusammen. Für neue Erlöse ohne Neuproduktion.</p>
+      <p class="lead">Ich helfe Verlagen, ihre Inhalte an Reiseunternehmen zu lizenzieren. Reiseunternehmen helfe ich, diese Inhalte in Unterlagen und Apps zu bringen, gemeinsam mit passenden Technologiepartnern.</p>
       <div class="actions">
         <a class="pill" href="#kontakt">Gespräch vereinbaren <span class="arr" aria-hidden="true">→</span></a>
         <a class="pill ghost" href="#leistungen">Leistungen</a>
@@ -344,7 +359,7 @@ footer a:hover{color:var(--ink)}
     </div>
     <figure class="portrait">
       <img src="img/portrait.jpg" alt="Porträt von Andreas Schulz" width="900" height="1084">
-      <div class="badge b2"><b>40+ Jahre</b>Verlag und Touristik</div>
+      <div class="badge b2"><b>50+ Jahre</b>Buch und Reise</div>
       <div class="badge b1"><b>TourCont AG</b>Aufsichtsratsvorsitzender</div>
     </figure>
   </div>
@@ -399,7 +414,7 @@ footer a:hover{color:var(--ink)}
   <section id="modell" class="dark">
     <div class="wrap">
       <div class="reveal">
-        <p class="eyebrow">Das Modell</p>
+        <p class="eyebrow">Ein Beispiel aus der Praxis</p>
         <h2>Vom Buch in die App.</h2>
       </div>
       <div class="flow" aria-label="Ablauf in drei Schritten">
@@ -421,6 +436,7 @@ footer a:hover{color:var(--ink)}
         <b><span class="count" data-to="50000" data-suffix="+">50.000+</span></b>
         <p>Auslieferungen der App „FRED“ von Donau Touristik auf Basis der TourCont AG.</p>
       </div>
+      <p class="indep">ABS Beratung ist unabhängig. Ich empfehle die Lösung, die zu Ihrem Unternehmen passt.</p>
     </div>
   </section>
 
@@ -433,7 +449,7 @@ footer a:hover{color:var(--ink)}
       <div class="facts">
         <div class="fact"><b><span class="count" data-to="1" data-suffix=" Mio.+">1 Mio.+</span></b><span>verkaufte Exemplare von „1000 Places“ im deutschsprachigen Raum</span></div>
         <div class="fact"><b><span class="count" data-to="20" data-suffix="+">20+</span></b><span>Jahre Premium Partner von DER Touristik</span></div>
-        <div class="fact"><b><span class="count" data-to="2" data-suffix=" Mio.">2 Mio.</span></b><span>Exemplare Jahresauflage für Großfläche und Discount</span></div>
+        <div class="fact"><b><span class="count" data-to="23" data-suffix="">23</span></b><span>DERTOUR-Kataloge mit knapp 80 Rundreisen aus der Kooperation „Travel the book“</span></div>
       </div>
     </div>
   </section>
@@ -464,8 +480,8 @@ footer a:hover{color:var(--ink)}
       </button>
       <div>
         <p class="eyebrow">Presse</p>
-        <blockquote>„Wir versuchen über unsere bekannteste Marke Sichtbarkeit zu erzeugen.“</blockquote>
-        <p class="src">Börsenblatt 35/2019</p>
+        <blockquote>„Neu war, dass wir uns in den Reisenden hineinversetzt haben.“</blockquote>
+        <p class="src">Andreas Schulz im BuchMarkt, 2022</p>
         <ul class="links">
           <li><a href="https://buchmarkt.de/2022/08/15/andreas-schulz-70/" target="_blank" rel="noopener"><span>Andreas Schulz (70): Interview zum Jubiläum</span><span>BuchMarkt ↗</span></a></li>
           <li><a href="https://www.boersenblatt.net/news/verlage-news/mit-digitalem-baukasten-auf-die-reise-gehen-171371" target="_blank" rel="noopener"><span>Mit digitalem Baukasten auf die Reise gehen</span><span>Börsenblatt ↗</span></a></li>
@@ -479,6 +495,20 @@ footer a:hover{color:var(--ink)}
     <button type="button" id="close-press">Schließen</button>
     <img src="img/boersenblatt-2019.jpg" alt="Doppelseite aus dem Börsenblatt 35/2019" width="1400" height="1050">
   </dialog>
+
+  <section id="ablauf">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">Zusammenarbeit</p>
+        <h2>So einfach geht der Einstieg.</h2>
+      </div>
+      <ol class="how">
+        <li><span class="n">01</span><h3>Erstgespräch</h3><p>30 Minuten am Telefon oder per Video. Unverbindlich.</p></li>
+        <li><span class="n">02</span><h3>Analyse</h3><p>Welche Inhalte, Partner und Abnehmer passen? Sie erhalten einen klaren Fahrplan.</p></li>
+        <li><span class="n">03</span><h3>Umsetzung</h3><p>Ich bringe die richtigen Partner zusammen und begleite bis zum Vertrag und zur Markteinführung.</p></li>
+      </ol>
+    </div>
+  </section>
 
   <section id="kontakt">
     <div class="wrap">
