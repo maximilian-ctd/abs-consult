@@ -251,6 +251,56 @@ footer a:hover{color:var(--ink)}
   .proof p{font-size:14px}
   .badge{position:static; margin-top:12px; max-width:none; animation:none!important}
 }
+
+/* Mobiles Menü */
+.menu-btn{display:none; width:44px; height:44px; border:1px solid var(--line); border-radius:50%; background:transparent; cursor:pointer; position:relative; flex:none}
+.menu-btn .ln,.menu-btn .ln::before,.menu-btn .ln::after{position:absolute; left:50%; width:18px; height:1.5px; background:var(--ink); transform:translateX(-50%); transition:transform .25s, opacity .2s}
+.menu-btn .ln{top:50%}
+.menu-btn .ln::before,.menu-btn .ln::after{content:""; left:0; transform:none}
+.menu-btn .ln::before{top:-6px} .menu-btn .ln::after{top:6px}
+.menu-btn[aria-expanded="true"] .ln{background:transparent}
+.menu-btn[aria-expanded="true"] .ln::before{transform:translateY(6px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] .ln::after{transform:translateY(-6px) rotate(-45deg)}
+.sr{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0)}
+.mnav{border-top:1px solid var(--line); background:var(--bg)}
+.mnav .wrap{display:grid; padding-block:8px 20px}
+.mnav a:not(.pill){text-decoration:none; font-size:20px; font-weight:300; padding:14px 0; border-bottom:1px solid var(--line)}
+.mnav .pill{justify-self:start; margin-top:18px}
+@media (min-width:901px){.mnav{display:none!important}}
+
+@media (max-width:900px){
+  .menu-btn{display:block}
+  .reveal{animation:none!important; opacity:1!important; transform:none!important}
+  section{padding-block:clamp(56px,12vw,80px)}
+  .hero{padding-block:32px 48px; gap:28px}
+  .tabs{flex-wrap:nowrap; overflow-x:auto; scrollbar-width:none; margin-inline:calc(-1 * clamp(16px,4vw,40px)); padding-inline:clamp(16px,4vw,40px); padding-bottom:4px}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{white-space:nowrap; flex:none}
+  .panel{padding:22px}
+  .contact{border-radius:12px}
+}
+@media (max-width:560px){
+  .head-cta{display:none}
+  .hero h1{font-size:clamp(36px,10.5vw,44px)}
+  .rotator{font-size:21px}
+  .hero .lead{font-size:16.5px; margin-top:18px}
+  .actions{margin-top:24px; gap:10px}
+  .actions .pill{padding:12px 18px; font-size:14px}
+  .portrait{display:grid; grid-template-columns:1fr 1fr; gap:10px; max-width:none}
+  .portrait img{grid-column:1 / -1}
+  .badge{margin-top:0!important; padding:10px 12px}
+  .badge b{font-size:18px}
+  h2{font-size:clamp(28px,8.4vw,34px)}
+  .fact b{font-size:44px}
+  .fact,.fact + .fact{padding:18px 0}
+  .tl-head{align-items:center}
+  .tl-card{padding:20px}
+  .tl-card .y{font-size:52px}
+  blockquote{font-size:24px}
+  .links a{font-size:14.5px}
+  .contact{padding:28px 22px}
+  .cinfo{font-size:15px}
+}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 
@@ -265,8 +315,19 @@ footer a:hover{color:var(--ink)}
       <a href="#werdegang">Werdegang</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
-    <a class="pill" href="#kontakt">Gespräch vereinbaren <span class="arr" aria-hidden="true">→</span></a>
+    <a class="pill head-cta" href="#kontakt">Gespräch vereinbaren <span class="arr" aria-hidden="true">→</span></a>
+    <button class="menu-btn" type="button" id="menu-btn" aria-expanded="false" aria-controls="mnav"><span class="ln" aria-hidden="true"></span><span class="sr">Menü</span></button>
   </div>
+  <nav class="mnav" id="mnav" aria-label="Mobiles Menü" hidden>
+    <div class="wrap">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#modell">Modell</a>
+      <a href="#erfahrung">Erfahrung</a>
+      <a href="#werdegang">Werdegang</a>
+      <a href="#kontakt">Kontakt</a>
+      <a class="pill" href="#kontakt">Gespräch vereinbaren <span class="arr" aria-hidden="true">→</span></a>
+    </div>
+  </nav>
 </header>
 
 <main id="start">
@@ -573,7 +634,7 @@ footer a:hover{color:var(--ink)}
     btns.forEach(function(b, j){ b.setAttribute('aria-selected', j === k ? 'true' : 'false'); b.tabIndex = j === k ? 0 : -1; b.classList.toggle('done', j < k); });
     var bb = btns[k]; fill.style.width = (bb.offsetLeft + 8) + 'px';
     card.className = 'tl-card' + (st.img ? '' : ' noimg'); card.setAttribute('aria-labelledby', bb.id);
-    card.innerHTML = '<div><div class="y">' + st.y + '</div><h3>' + st.t + '</h3><p>' + st.p + '</p></div>' + (st.img ? '<img src="' + st.img + '" alt="' + st.alt + '" width="800" height="1000" loading="lazy">' : '');
+    card.innerHTML = '<div><div class="y">' + st.y + '</div><h3>' + st.t + '</h3><p>' + st.p + '</p></div>' + (st.img ? '<img src="' + st.img + '" alt="' + st.alt + '" width="800" height="1000">' : '');
     void card.offsetWidth; card.classList.add('swap');
     prev.disabled = k === 0; next.disabled = k === stations.length - 1;
     var sl = bb.offsetLeft - parseFloat(getComputedStyle(yearsEl).paddingLeft || 0); if (yearsEl.scrollWidth > yearsEl.clientWidth) yearsEl.scrollTo({left: sl, behavior: reduce ? 'auto' : 'smooth'});
@@ -591,6 +652,12 @@ footer a:hover{color:var(--ink)}
     }); }, {threshold:.5}).observe(card);
   } else { prog.style.visibility = 'hidden'; }
   addEventListener('resize', function(){ fill.style.width = (btns[cur].offsetLeft + 8) + 'px'; });
+
+  var mb = document.getElementById('menu-btn'), mn = document.getElementById('mnav');
+  function setMenu(o){ mb.setAttribute('aria-expanded', o ? 'true' : 'false'); mn.hidden = !o; }
+  mb.addEventListener('click', function(){ setMenu(mn.hidden); });
+  mn.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
+  addEventListener('keydown', function(e){ if (e.key === 'Escape' && !mn.hidden){ setMenu(false); mb.focus(); } });
 })();
 </script>
 </body></html>
