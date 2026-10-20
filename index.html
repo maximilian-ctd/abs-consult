@@ -487,12 +487,12 @@ footer a:hover{color:var(--ink)}
           <p class="eyebrow">Kontakt</p>
           <h2>Sprechen wir über Ihre Inhalte.</h2>
           <div class="actions">
-            <a class="pill" href="mailto:abs.schulz@web.de">E-Mail schreiben <span class="arr" aria-hidden="true">→</span></a>
+            <a class="pill" href="mailto:as@abs-beratung.com">E-Mail schreiben <span class="arr" aria-hidden="true">→</span></a>
             <a class="pill ghost" href="https://www.linkedin.com/in/andreas-schulz-23a8a221/" target="_blank" rel="noopener">LinkedIn</a>
           </div>
         </div>
         <div class="cinfo">
-          <div><span class="k">E-Mail</span><a href="mailto:abs.schulz@web.de" id="mail">abs.schulz@web.de</a><button class="copy-btn" type="button" id="copy-mail">Kopieren</button></div>
+          <div><span class="k">E-Mail</span><a href="mailto:as@abs-beratung.com" id="mail">as@abs-beratung.com</a><button class="copy-btn" type="button" id="copy-mail">Kopieren</button></div>
           <div><span class="k">Standort</span>Köln, Einsatz deutschlandweit</div>
         </div>
       </div>
@@ -504,7 +504,7 @@ footer a:hover{color:var(--ink)}
             <h3>Angaben gemäß § 5 DDG</h3>
             <p>ABS Beratung<br>Andreas Schulz<br>Markomannenstraße 18<br>50679 Köln</p>
             <h3>Kontakt</h3>
-            <p>E-Mail: abs.schulz@web.de</p>
+            <p>E-Mail: as@abs-beratung.com</p>
             <h3>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3>
             <p>Andreas Schulz, Anschrift wie oben</p>
           </div>
@@ -513,7 +513,7 @@ footer a:hover{color:var(--ink)}
           <summary>Datenschutz</summary>
           <div class="body">
             <h3>Verantwortlicher</h3>
-            <p>Andreas Schulz, Markomannenstraße 18, 50679 Köln, abs.schulz@web.de</p>
+            <p>Andreas Schulz, Markomannenstraße 18, 50679 Köln, as@abs-beratung.com</p>
             <h3>Hosting und Aufruf der Website</h3>
             <p>Diese Website wird bei Netlify, Inc., 101 2nd Street, San Francisco, CA 94105, USA gehostet. Beim Aufruf verarbeitet Netlify technisch notwendige Daten wie IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Seite und Browsertyp in Server-Logfiles. Das dient dem sicheren und stabilen Betrieb der Seite. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.</p>
             <p>Netlify ist nach dem EU-US Data Privacy Framework zertifiziert. Die Übermittlung von Daten in die USA stützt sich auf den Angemessenheitsbeschluss der EU-Kommission. Weitere Informationen finden Sie in der Datenschutzerklärung von Netlify unter netlify.com/privacy.</p>
@@ -601,7 +601,7 @@ footer a:hover{color:var(--ink)}
   btn.addEventListener('click', function(){
     function done(){ btn.textContent = 'Kopiert'; setTimeout(function(){ btn.textContent = 'Kopieren'; }, 1800); }
     function fallback(){ var r = document.createRange(); r.selectNodeContents(document.getElementById('mail')); var s = getSelection(); s.removeAllRanges(); s.addRange(r); }
-    try { navigator.clipboard.writeText('abs.schulz@web.de').then(done, fallback); } catch(e){ fallback(); }
+    try { navigator.clipboard.writeText('as@abs-beratung.com').then(done, fallback); } catch(e){ fallback(); }
   });
 
   // Werdegang
