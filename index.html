@@ -659,7 +659,7 @@ footer a:hover{color:var(--ink)}
     {y:'1977', t:'Gründung des Vista Point Verlages', p:'Gemeinsam mit Gudrun Wasmuth und Horst Schmidt-Brümmer in Köln gegründet. Erste Publikation: „Frauenkunst USA“.'},
     {y:'1988', img:'img/tl-1988.jpg', fit:'contain', cap:'„Südwesten USA“ von Horst Schmidt-Brümmer und Karl Teuschl, Vista Point Reisen', alt:'Titel des Reiseführers Südwesten USA von Vista Point Reisen', t:'Eigene Reiseführerreihe', p:'Farbfotos und detaillierte Routenplanung, erstmals im Vierfarbdruck in Deutschland. Der wirtschaftliche Durchbruch im Buchhandel.'},
     {y:'1994', t:'Partner von DERTOUR', p:'Erster Kontakt auf der ITB, daraus über 23 Jahre Premium-Partnerschaft. „Travel the book“ lief in 23 Katalogen.'},
-    {y:'2015', t:'1000 Places to see before you die', p:'Der Weltbestseller kommt zu Vista Point. Über drei Millionen verkaufte Exemplare im deutschsprachigen Raum.'},
+    {y:'2015', img:'img/tl-2015.jpg', pos:'50% 35%', cap:'', alt:'Andreas Schulz mit zwei Gesprächspartnerinnen', t:'1000 Places to see before you die', p:'Der Weltbestseller kommt zu Vista Point. Über drei Millionen verkaufte Exemplare im deutschsprachigen Raum.'},
     {y:'2020', t:'TourCont AG', p:'Gründung in München mit Markus Schreiber und Klaus Weise, Kollegen aus der Softwareentwicklung. Digitalisierte Verlagsinhalte fließen direkt in Reise-Apps wie „FRED“ von Donau Touristik.'},
     {y:'Heute', t:'ABS Beratung', p:'Strategische Beratung für Verlage, Reiseunternehmen und Technologiepartner.'}
   ];
@@ -683,7 +683,7 @@ footer a:hover{color:var(--ink)}
     btns.forEach(function(b, j){ b.setAttribute('aria-selected', j === k ? 'true' : 'false'); b.tabIndex = j === k ? 0 : -1; b.classList.toggle('done', j < k); });
     var bb = btns[k]; fill.style.width = (bb.offsetLeft + 8) + 'px';
     card.className = 'tl-card' + (st.img ? '' : ' noimg'); card.setAttribute('aria-labelledby', bb.id);
-    card.innerHTML = '<div><div class="y">' + st.y + '</div><h3>' + st.t + '</h3><p>' + st.p + '</p></div>' + (st.img ? '<figure' + (st.fit === 'contain' ? ' class="contain"' : '') + '><img src="' + st.img + '" alt="' + st.alt + '" width="800" height="1000">' + (st.cap ? '<figcaption>' + st.cap + '</figcaption>' : '') + '</figure>' : '');
+    card.innerHTML = '<div><div class="y">' + st.y + '</div><h3>' + st.t + '</h3><p>' + st.p + '</p></div>' + (st.img ? '<figure' + (st.fit === 'contain' ? ' class="contain"' : '') + '><img src="' + st.img + '"' + (st.pos ? ' style="object-position:' + st.pos + '"' : '') + ' alt="' + st.alt + '" width="800" height="1000">' + (st.cap ? '<figcaption>' + st.cap + '</figcaption>' : '') + '</figure>' : '');
     void card.offsetWidth; card.classList.add('swap');
     prev.disabled = k === 0; next.disabled = k === stations.length - 1;
     var sl = bb.offsetLeft - parseFloat(getComputedStyle(yearsEl).paddingLeft || 0); if (yearsEl.scrollWidth > yearsEl.clientWidth) yearsEl.scrollTo({left: sl, behavior: reduce ? 'auto' : 'smooth'});
