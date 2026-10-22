@@ -155,13 +155,15 @@ header.scrolled{border-bottom-color:var(--line)}
 .yr-btn.done i{background:var(--brass)}
 .yr-btn[aria-selected="true"] i{transform:scale(1.35); background:var(--brass); box-shadow:0 0 0 6px rgba(168,139,92,.16)}
 .yr-btn[aria-selected="true"] span{color:var(--ink); font-weight:500}
-.tl-card{margin-top:24px; display:grid; grid-template-columns:1fr; gap:clamp(24px,4vw,56px); align-items:center; background:var(--paper); border:1px solid var(--line); border-radius:10px; padding:clamp(24px,4vw,44px); min-height:220px}
+.tl-card{margin-top:24px; display:grid; grid-template-columns:1fr 300px; gap:clamp(24px,4vw,56px); align-items:center; background:var(--paper); border:1px solid var(--line); border-radius:10px; padding:clamp(24px,4vw,44px); min-height:220px}
 .tl-card.noimg{grid-template-columns:1fr}
 .tl-card > *{min-width:0}
 .tl-card .y{font-size:clamp(48px,7vw,84px); font-weight:300; line-height:1; letter-spacing:-.03em; color:var(--brass); font-variant-numeric:tabular-nums}
 .tl-card h3{font-size:clamp(22px,2.6vw,30px); margin-top:14px}
 .tl-card p{margin-top:12px; color:var(--muted); max-width:52ch}
-.tl-card img{display:block; width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:6px}
+.tl-card figure{margin:0}
+.tl-card img{display:block; width:100%; aspect-ratio:4/5; object-fit:cover; object-position:50% 30%; border-radius:6px; filter:saturate(.95)}
+.tl-card figcaption{margin-top:8px; font-size:12.5px; color:var(--muted)}
 .tl-card.swap{animation:swap .45s ease both}
 @keyframes swap{from{opacity:.15; transform:translateY(8px)}}
 .tl-progress{height:2px; background:var(--line); margin-top:14px; border-radius:2px; overflow:hidden}
@@ -228,7 +230,8 @@ footer a:hover{color:var(--ink)}
   .years{grid-template-columns:repeat(7,92px); margin-inline:calc(-1 * clamp(16px,4vw,40px)); padding-inline:clamp(16px,4vw,40px); scroll-padding-inline:clamp(16px,4vw,40px)}
   .years::before{left:clamp(16px,4vw,40px)}
   .tl-card{grid-template-columns:1fr; min-height:0}
-  .tl-card img{aspect-ratio:16/10; max-height:260px}
+  .tl-card figure{order:-1}
+  .tl-card img{aspect-ratio:4/3; max-height:300px; object-position:50% 25%}
 }
 @media (max-width:560px){
   body{font-size:16px}
@@ -651,7 +654,7 @@ footer a:hover{color:var(--ink)}
 
   // Werdegang
   var stations = [
-    {y:'1972', t:'DuMont Buchverlag', p:'Ausbildung zum Verlagshersteller, danach Kunstbuch- und internationale Katalogproduktionen. Künstler-Begegnungen mit Max Ernst, Viktor Vasarely, Gerhard Richter u. v. a. Ab 1980 Herausgeber der Reihe „Richtig Reisen“.'},
+    {y:'1972', img:'img/tl-1972.jpg', cap:'', alt:'Schwarzweißfoto aus der DuMont-Zeit, frühe 1970er Jahre', t:'DuMont Buchverlag', p:'Ausbildung zum Verlagshersteller, danach Kunstbuch- und internationale Katalogproduktionen. Künstler-Begegnungen mit Max Ernst, Viktor Vasarely, Gerhard Richter u. v. a. Ab 1980 Herausgeber der Reihe „Richtig Reisen“.'},
     {y:'1977', t:'Gründung des Vista Point Verlages', p:'Gemeinsam mit Gudrun Wasmuth und Horst Schmidt-Brümmer in Köln gegründet. Erste Publikation: „Frauenkunst USA“.'},
     {y:'1988', t:'Eigene Reiseführerreihe', p:'Farbfotos und detaillierte Routenplanung, erstmals im Vierfarbdruck in Deutschland. Der wirtschaftliche Durchbruch im Buchhandel.'},
     {y:'1994', t:'Partner von DERTOUR', p:'Erster Kontakt auf der ITB, daraus über 23 Jahre Premium-Partnerschaft. „Travel the book“ lief in 23 Katalogen.'},
@@ -678,8 +681,8 @@ footer a:hover{color:var(--ink)}
     cur = k; var st = stations[k];
     btns.forEach(function(b, j){ b.setAttribute('aria-selected', j === k ? 'true' : 'false'); b.tabIndex = j === k ? 0 : -1; b.classList.toggle('done', j < k); });
     var bb = btns[k]; fill.style.width = (bb.offsetLeft + 8) + 'px';
-    card.className = 'tl-card noimg'; card.setAttribute('aria-labelledby', bb.id);
-    card.innerHTML = '<div><div class="y">' + st.y + '</div><h3>' + st.t + '</h3><p>' + st.p + '</p></div>';
+    card.className = 'tl-card' + (st.img ? '' : ' noimg'); card.setAttribute('aria-labelledby', bb.id);
+    card.innerHTML = '<div><div class="y">' + st.y + '</div><h3>' + st.t + '</h3><p>' + st.p + '</p></div>' + (st.img ? '<figure><img src="' + st.img + '" alt="' + st.alt + '" width="800" height="1000">' + (st.cap ? '<figcaption>' + st.cap + '</figcaption>' : '') + '</figure>' : '');
     void card.offsetWidth; card.classList.add('swap');
     prev.disabled = k === 0; next.disabled = k === stations.length - 1;
     var sl = bb.offsetLeft - parseFloat(getComputedStyle(yearsEl).paddingLeft || 0); if (yearsEl.scrollWidth > yearsEl.clientWidth) yearsEl.scrollTo({left: sl, behavior: reduce ? 'auto' : 'smooth'});
