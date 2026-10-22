@@ -163,6 +163,7 @@ header.scrolled{border-bottom-color:var(--line)}
 .tl-card p{margin-top:12px; color:var(--muted); max-width:52ch}
 .tl-card figure{margin:0}
 .tl-card img{display:block; width:100%; aspect-ratio:4/5; object-fit:cover; object-position:50% 30%; border-radius:6px; filter:saturate(.95)}
+.tl-card figure.contain img{object-fit:contain; background:var(--bg); padding:14px}
 .tl-card figcaption{margin-top:8px; font-size:12.5px; color:var(--muted)}
 .tl-card.swap{animation:swap .45s ease both}
 @keyframes swap{from{opacity:.15; transform:translateY(8px)}}
@@ -656,7 +657,7 @@ footer a:hover{color:var(--ink)}
   var stations = [
     {y:'1972', img:'img/tl-1972.jpg', cap:'', alt:'Schwarzweißfoto aus der DuMont-Zeit, frühe 1970er Jahre', t:'DuMont Buchverlag', p:'Ausbildung zum Verlagshersteller, danach Kunstbuch- und internationale Katalogproduktionen. Künstler-Begegnungen mit Max Ernst, Viktor Vasarely, Gerhard Richter u. v. a. Ab 1980 Herausgeber der Reihe „Richtig Reisen“.'},
     {y:'1977', t:'Gründung des Vista Point Verlages', p:'Gemeinsam mit Gudrun Wasmuth und Horst Schmidt-Brümmer in Köln gegründet. Erste Publikation: „Frauenkunst USA“.'},
-    {y:'1988', t:'Eigene Reiseführerreihe', p:'Farbfotos und detaillierte Routenplanung, erstmals im Vierfarbdruck in Deutschland. Der wirtschaftliche Durchbruch im Buchhandel.'},
+    {y:'1988', img:'img/tl-1988.jpg', fit:'contain', cap:'„Südwesten USA“ von Horst Schmidt-Brümmer und Karl Teuschl, Vista Point Reisen', alt:'Titel des Reiseführers Südwesten USA von Vista Point Reisen', t:'Eigene Reiseführerreihe', p:'Farbfotos und detaillierte Routenplanung, erstmals im Vierfarbdruck in Deutschland. Der wirtschaftliche Durchbruch im Buchhandel.'},
     {y:'1994', t:'Partner von DERTOUR', p:'Erster Kontakt auf der ITB, daraus über 23 Jahre Premium-Partnerschaft. „Travel the book“ lief in 23 Katalogen.'},
     {y:'2015', t:'1000 Places to see before you die', p:'Der Weltbestseller kommt zu Vista Point. Über drei Millionen verkaufte Exemplare im deutschsprachigen Raum.'},
     {y:'2020', t:'TourCont AG', p:'Gründung in München mit Markus Schreiber und Klaus Weise, Kollegen aus der Softwareentwicklung. Digitalisierte Verlagsinhalte fließen direkt in Reise-Apps wie „FRED“ von Donau Touristik.'},
@@ -682,7 +683,7 @@ footer a:hover{color:var(--ink)}
     btns.forEach(function(b, j){ b.setAttribute('aria-selected', j === k ? 'true' : 'false'); b.tabIndex = j === k ? 0 : -1; b.classList.toggle('done', j < k); });
     var bb = btns[k]; fill.style.width = (bb.offsetLeft + 8) + 'px';
     card.className = 'tl-card' + (st.img ? '' : ' noimg'); card.setAttribute('aria-labelledby', bb.id);
-    card.innerHTML = '<div><div class="y">' + st.y + '</div><h3>' + st.t + '</h3><p>' + st.p + '</p></div>' + (st.img ? '<figure><img src="' + st.img + '" alt="' + st.alt + '" width="800" height="1000">' + (st.cap ? '<figcaption>' + st.cap + '</figcaption>' : '') + '</figure>' : '');
+    card.innerHTML = '<div><div class="y">' + st.y + '</div><h3>' + st.t + '</h3><p>' + st.p + '</p></div>' + (st.img ? '<figure' + (st.fit === 'contain' ? ' class="contain"' : '') + '><img src="' + st.img + '" alt="' + st.alt + '" width="800" height="1000">' + (st.cap ? '<figcaption>' + st.cap + '</figcaption>' : '') + '</figure>' : '');
     void card.offsetWidth; card.classList.add('swap');
     prev.disabled = k === 0; next.disabled = k === stations.length - 1;
     var sl = bb.offsetLeft - parseFloat(getComputedStyle(yearsEl).paddingLeft || 0); if (yearsEl.scrollWidth > yearsEl.clientWidth) yearsEl.scrollTo({left: sl, behavior: reduce ? 'auto' : 'smooth'});
