@@ -302,6 +302,13 @@ footer a:hover{color:var(--ink)}
   .cinfo{font-size:15px}
 }
 
+.example{display:grid; grid-template-columns:minmax(0,380px) 1fr; gap:clamp(28px,5vw,64px); align-items:center; margin-top:clamp(48px,7vw,72px)}
+.example > *{min-width:0}
+.example .proof{margin-top:0}
+.app-shot{margin:0}
+.app-shot img{display:block; width:100%; border-radius:14px; border:6px solid #0f1424; box-shadow:0 24px 50px -20px rgba(0,0,0,.6)}
+.app-shot figcaption{margin-top:12px; font-size:13px; color:var(--navy-muted)}
+@media (max-width:760px){ .example{grid-template-columns:1fr} .app-shot{max-width:420px} }
 .indep{margin-top:20px; font-size:14.5px; color:var(--navy-muted)}
 /* Ablauf */
 #ablauf{padding-bottom:0}
@@ -432,11 +439,19 @@ footer a:hover{color:var(--ink)}
           <h3>Reise-App</h3><p>Passend zur einzelnen Reise</p>
         </div>
       </div>
-      <div class="proof">
-        <b><span class="count" data-to="50000" data-suffix="+">50.000+</span></b>
-        <p>Auslieferungen der Radreise-App „FRED“ an die Donau Touristik GmbH, von der TourCont AG entwickelt und von mir mitgestaltet.</p>
+      <div class="example">
+        <figure class="app-shot">
+          <img src="img/fred-app.jpg" alt="Startansicht der Radreise-App FRED von Donau Touristik mit persönlicher Reise und Tagesroute" width="637" height="598" loading="lazy">
+          <figcaption>Radreise-App „FRED“ von Donau Touristik</figcaption>
+        </figure>
+        <div>
+          <div class="proof">
+            <b><span class="count" data-to="50000" data-suffix="+">50.000+</span></b>
+            <p>Auslieferungen der Radreise-App „FRED“ an die Donau Touristik GmbH, von der TourCont AG entwickelt und von mir mitgestaltet.</p>
+          </div>
+          <p class="indep">ABS Beratung ist unabhängig. Ich empfehle die Lösung, die zu Ihrem Unternehmen passt.</p>
+        </div>
       </div>
-      <p class="indep">ABS Beratung ist unabhängig. Ich empfehle die Lösung, die zu Ihrem Unternehmen passt.</p>
     </div>
   </section>
 
