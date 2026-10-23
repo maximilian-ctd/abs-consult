@@ -307,16 +307,30 @@ footer a:hover{color:var(--ink)}
   .cinfo{font-size:15px}
 }
 
-.example{display:grid; grid-template-columns:minmax(0,380px) 1fr; gap:clamp(28px,5vw,64px); align-items:center; margin-top:clamp(48px,7vw,72px)}
-.example > *{min-width:0}
-.example .proof{margin-top:0}
-.example.ex2{margin-top:clamp(40px,6vw,64px)}
-@media (min-width:761px){ .example.ex2{grid-template-columns:1fr minmax(0,380px)} .example.ex2 > figure{order:2} }
-.app-shot{margin:0}
-.app-shot img{display:block; width:100%; border-radius:14px; border:6px solid #0f1424; box-shadow:0 24px 50px -20px rgba(0,0,0,.6)}
-.app-shot figcaption{margin-top:12px; font-size:13px; color:var(--navy-muted)}
-@media (max-width:760px){ .example{grid-template-columns:1fr} .app-shot{max-width:420px} }
-.indep{margin-top:20px; font-size:14.5px; color:var(--navy-muted)}
+.cases{margin-top:clamp(48px,7vw,72px)}
+.cases-head{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:20px}
+.cases-label{font-size:12px; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:var(--brass-light)}
+.case-nav{display:flex; align-items:center; gap:8px}
+.case-count{font-size:13px; color:var(--navy-muted); font-variant-numeric:tabular-nums; margin-right:8px}
+.case-nav button{width:44px; height:44px; border-radius:50%; border:1px solid var(--navy-line); background:transparent; color:var(--navy-ink); font:inherit; font-size:18px; cursor:pointer; transition:border-color .2s}
+.case-nav button:hover{border-color:var(--navy-ink)}
+.case-nav button:disabled{opacity:.35; cursor:default; border-color:var(--navy-line)}
+.case-track{display:flex; gap:20px; overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth; scrollbar-width:none; overscroll-behavior-x:contain}
+.case-track::-webkit-scrollbar{display:none}
+.case-track:focus-visible{outline:2px solid var(--brass-light); outline-offset:4px; border-radius:14px}
+.case{flex:0 0 100%; scroll-snap-align:start; display:grid; grid-template-columns:1fr 1fr; gap:clamp(24px,4vw,56px); align-items:center; background:rgba(255,255,255,.04); border:1px solid var(--navy-line); border-radius:14px; padding:clamp(18px,3vw,32px)}
+.case > *{min-width:0}
+.case figure{margin:0}
+.case img{display:block; width:100%; aspect-ratio:16/15; object-fit:cover; border-radius:10px}
+.case-kicker{font-size:13px; color:var(--navy-muted)}
+.case-num{display:block; margin-top:14px; font-weight:300; font-size:clamp(44px,5.4vw,64px); line-height:1; letter-spacing:-.02em; color:var(--navy-ink); font-variant-numeric:tabular-nums}
+.case-text{margin-top:18px; color:var(--navy-muted); font-size:15.5px; max-width:40ch}
+.case-dots{display:flex; justify-content:center; gap:8px; margin-top:18px}
+.case-dots span{width:6px; height:6px; border-radius:50%; background:var(--navy-line); transition:background .25s, width .25s}
+.case-dots span.on{width:22px; border-radius:3px; background:var(--brass-light)}
+@media (max-width:760px){ .case{grid-template-columns:1fr; gap:20px} .case-num{font-size:44px} }
+@media (prefers-reduced-motion:reduce){ .case-track{scroll-behavior:auto} }
+.indep{margin-top:28px; font-size:14.5px; color:var(--navy-muted)}
 /* Ablauf */
 #ablauf{padding-bottom:0}
 .how{list-style:none; padding:0; margin:40px 0 0; display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--line)}
@@ -446,31 +460,36 @@ footer a:hover{color:var(--ink)}
           <h3>Reise-App</h3><p>Passend zur einzelnen Reise</p>
         </div>
       </div>
-      <div class="example">
-        <figure class="app-shot">
-          <img src="img/fred-app.jpg" alt="Startansicht der Radreise-App FRED von Donau Touristik mit persönlicher Reise und Tagesroute" width="637" height="598" loading="lazy">
-          <figcaption>Radreise-App „FRED“ von Donau Touristik</figcaption>
-        </figure>
-        <div>
-          <div class="proof">
-            <b><span class="count" data-to="50000" data-suffix="+">50.000+</span></b>
-            <p>Auslieferungen der Radreise-App „FRED“ an die Donau Touristik GmbH, von der TourCont AG entwickelt und von mir mitgestaltet.</p>
+      <div class="cases" aria-roledescription="Karussell" aria-label="Fallbeispiele">
+        <div class="cases-head">
+          <p class="cases-label">Fallbeispiele</p>
+          <div class="case-nav">
+            <span class="case-count" id="case-count" aria-live="polite">01 / 02</span>
+            <button type="button" id="case-prev" aria-label="Vorheriges Beispiel">←</button>
+            <button type="button" id="case-next" aria-label="Nächstes Beispiel">→</button>
           </div>
         </div>
-      </div>
-      <div class="example ex2">
-        <figure class="app-shot">
-          <img src="img/go-vista.jpg" alt="Drei Go-Vista-Reiseführer Hamburg, Portugal und Paris, jeweils mit dem Hinweis inklusive Travel-App" width="900" height="693" loading="lazy">
-          <figcaption>Go-Vista-Reiseführer mit Travel-App</figcaption>
-        </figure>
-        <div>
-          <div class="proof">
-            <b><span class="count" data-to="200000" data-suffix="+">200.000+</span></b>
-            <p>Auslieferungen der Go Vista Travel-App an ALDI SÜD, ebenfalls von der TourCont AG.</p>
-          </div>
-          <p class="indep">ABS Beratung ist unabhängig. Ich empfehle die Lösung, die zu Ihrem Unternehmen passt.</p>
+        <div class="case-track" id="case-track" tabindex="0">
+          <article class="case" aria-roledescription="Folie" aria-label="1 von 2">
+            <figure><img src="img/fred-app.jpg" alt="Startansicht der Radreise-App FRED von Donau Touristik mit persönlicher Reise und Tagesroute" width="637" height="598" loading="lazy"></figure>
+            <div class="case-body">
+              <p class="case-kicker">Donau Touristik · Radreise-App „FRED“</p>
+              <b class="case-num"><span class="count" data-to="50000" data-suffix="+">50.000+</span></b>
+              <p class="case-text">Auslieferungen der Radreise-App „FRED“ an die Donau Touristik GmbH, von der TourCont AG entwickelt und von mir mitgestaltet.</p>
+            </div>
+          </article>
+          <article class="case" aria-roledescription="Folie" aria-label="2 von 2">
+            <figure><img src="img/go-vista.jpg" alt="Drei Go-Vista-Reiseführer Hamburg, Portugal und Paris, jeweils mit dem Hinweis inklusive Travel-App" width="960" height="887" loading="lazy"></figure>
+            <div class="case-body">
+              <p class="case-kicker">ALDI SÜD · Go Vista Travel-App</p>
+              <b class="case-num"><span class="count" data-to="200000" data-suffix="+">200.000+</span></b>
+              <p class="case-text">Auslieferungen der Go Vista Travel-App an ALDI SÜD, ebenfalls von der TourCont AG.</p>
+            </div>
+          </article>
         </div>
+        <div class="case-dots" id="case-dots" aria-hidden="true"><span class="on"></span><span></span></div>
       </div>
+      <p class="indep">ABS Beratung ist unabhängig. Ich empfehle die Lösung, die zu Ihrem Unternehmen passt.</p>
     </div>
   </section>
 
@@ -722,6 +741,25 @@ footer a:hover{color:var(--ink)}
   mb.addEventListener('click', function(){ setMenu(mn.hidden); });
   mn.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
   addEventListener('keydown', function(e){ if (e.key === 'Escape' && !mn.hidden){ setMenu(false); mb.focus(); } });
+
+  (function(){
+    var track = document.getElementById('case-track'); if (!track) return;
+    var slides = track.children, n = slides.length, cur = 0;
+    var prev = document.getElementById('case-prev'), next = document.getElementById('case-next');
+    var count = document.getElementById('case-count'), dots = document.getElementById('case-dots').children;
+    function pad(x){ return (x < 10 ? '0' : '') + x; }
+    function ui(){
+      count.textContent = pad(cur + 1) + ' / ' + pad(n);
+      prev.disabled = cur === 0; next.disabled = cur === n - 1;
+      for (var k = 0; k < dots.length; k++) dots[k].classList.toggle('on', k === cur);
+    }
+    function go(k){ k = Math.max(0, Math.min(n - 1, k)); track.scrollTo({left: slides[k].offsetLeft - track.offsetLeft}); }
+    prev.addEventListener('click', function(){ go(cur - 1); });
+    next.addEventListener('click', function(){ go(cur + 1); });
+    track.addEventListener('keydown', function(e){ if (e.key === 'ArrowRight'){ e.preventDefault(); go(cur + 1); } if (e.key === 'ArrowLeft'){ e.preventDefault(); go(cur - 1); } });
+    track.addEventListener('scroll', function(){ var k = Math.round(track.scrollLeft / (slides[0].offsetWidth + 20)); if (k !== cur){ cur = k; ui(); } }, {passive:true});
+    ui();
+  })();
 })();
 </script>
 </body></html>
