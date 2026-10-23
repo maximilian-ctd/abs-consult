@@ -310,6 +310,8 @@ footer a:hover{color:var(--ink)}
 .example{display:grid; grid-template-columns:minmax(0,380px) 1fr; gap:clamp(28px,5vw,64px); align-items:center; margin-top:clamp(48px,7vw,72px)}
 .example > *{min-width:0}
 .example .proof{margin-top:0}
+.example.ex2{margin-top:clamp(40px,6vw,64px)}
+@media (min-width:761px){ .example.ex2{grid-template-columns:1fr minmax(0,380px)} .example.ex2 > figure{order:2} }
 .app-shot{margin:0}
 .app-shot img{display:block; width:100%; border-radius:14px; border:6px solid #0f1424; box-shadow:0 24px 50px -20px rgba(0,0,0,.6)}
 .app-shot figcaption{margin-top:12px; font-size:13px; color:var(--navy-muted)}
@@ -426,7 +428,7 @@ footer a:hover{color:var(--ink)}
   <section id="modell" class="dark">
     <div class="wrap">
       <div class="reveal">
-        <p class="eyebrow">Ein Beispiel aus der Praxis</p>
+        <p class="eyebrow">Beispiele aus der Praxis</p>
         <h2>Vom Buch in die App.</h2>
       </div>
       <div class="flow" aria-label="Ablauf in drei Schritten">
@@ -453,6 +455,18 @@ footer a:hover{color:var(--ink)}
           <div class="proof">
             <b><span class="count" data-to="50000" data-suffix="+">50.000+</span></b>
             <p>Auslieferungen der Radreise-App „FRED“ an die Donau Touristik GmbH, von der TourCont AG entwickelt und von mir mitgestaltet.</p>
+          </div>
+        </div>
+      </div>
+      <div class="example ex2">
+        <figure class="app-shot">
+          <img src="img/go-vista.jpg" alt="Drei Go-Vista-Reiseführer Hamburg, Portugal und Paris, jeweils mit dem Hinweis inklusive Travel-App" width="900" height="693" loading="lazy">
+          <figcaption>Go-Vista-Reiseführer mit Travel-App</figcaption>
+        </figure>
+        <div>
+          <div class="proof">
+            <b><span class="count" data-to="200000" data-suffix="+">200.000+</span></b>
+            <p>Auslieferungen der Go Vista Travel-App an ALDI SÜD, ebenfalls von der TourCont AG.</p>
           </div>
           <p class="indep">ABS Beratung ist unabhängig. Ich empfehle die Lösung, die zu Ihrem Unternehmen passt.</p>
         </div>
@@ -657,7 +671,7 @@ footer a:hover{color:var(--ink)}
   // Werdegang
   var stations = [
     {y:'1972', img:'img/tl-1972.jpg', cap:'', alt:'Schwarzweißfoto aus der DuMont-Zeit, frühe 1970er Jahre', t:'DuMont Buchverlag', p:'Ausbildung zum Verlagshersteller, danach Kunstbuch- und internationale Katalogproduktionen. Künstler-Begegnungen mit Max Ernst, Viktor Vasarely, Gerhard Richter u. v. a. Ab 1980 Herausgeber der Reihe „Richtig Reisen“.'},
-    {y:'1977', t:'Gründung des Vista Point Verlages', p:'Gemeinsam mit Gudrun Wasmuth und Horst Schmidt-Brümmer in Köln gegründet. Erste Publikation: „Frauenkunst USA“.'},
+    {y:'1977', img:'img/tl-1977.jpg', fit:'contain', cap:'Vista Point: „Reisen mit Durchblick“', alt:'Schwarzweißfoto: zwei Männer im großen Dia-Rahmen mit dem Schriftzug Reisen mit Durchblick, Vista Point, einer hält den Reiseführer Kalifornien', t:'Gründung des Vista Point Verlages', p:'Gemeinsam mit Gudrun Wasmuth und Horst Schmidt-Brümmer in Köln gegründet. Erste Publikation: „Frauenkunst USA“.'},
     {y:'1988', img:'img/tl-1988.jpg', fit:'contain', cap:'„Südwesten USA“ von Horst Schmidt-Brümmer und Karl Teuschl, Vista Point Reisen', alt:'Titel des Reiseführers Südwesten USA von Vista Point Reisen', t:'Eigene Reiseführerreihe', p:'Farbfotos und detaillierte Routenplanung, erstmals im Vierfarbdruck in Deutschland. Der wirtschaftliche Durchbruch im Buchhandel.'},
     {y:'1994', t:'Partner von DERTOUR', p:'Erster Kontakt auf der ITB, daraus über 23 Jahre Premium-Partnerschaft. „Travel the book“ lief in 23 Katalogen.'},
     {y:'2015', img:'img/tl-2015.jpg', pos:'50% 35%', cap:'', alt:'Andreas Schulz mit zwei Gesprächspartnerinnen', t:'1000 Places to see before you die', p:'Der Weltbestseller kommt zu Vista Point. Über drei Millionen verkaufte Exemplare im deutschsprachigen Raum.'},
