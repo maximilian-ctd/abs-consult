@@ -97,6 +97,7 @@ header.scrolled{border-bottom-color:var(--line)}
 .panels{margin-top:28px}
 .panel{display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,5vw,64px); align-items:center; background:var(--paper); border:1px solid var(--line); border-radius:10px; padding:clamp(24px,4vw,48px)}
 .panel > *{min-width:0}
+.panel.single{grid-template-columns:1fr}
 .panel.enter{animation:enter .45s ease both}
 @keyframes enter{from{opacity:.2; transform:translateY(10px)}}
 .panel h3{font-size:clamp(26px,3vw,36px)}
@@ -421,13 +422,12 @@ footer a:hover{color:var(--ink)}
         <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1">Technologiepartner</button>
       </div>
       <div class="panels">
-        <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1">
+        <div class="panel single" role="tabpanel" id="p1" aria-labelledby="t1">
           <div>
             <h3>Gute Inhalte verdienen mehr als eine Auflage.</h3>
             <p>Ich mache aus Ihrem Bestand lizenzierbare Assets und finde die Abnehmer dafür.</p>
             <ul class="chips"><li>Content-Monetarisierung</li><li>B2B-Lizenzen</li><li>Digitalisierung</li><li>Neue Vertriebswege</li></ul>
           </div>
-          <figure><img src="img/verlage-messe.jpg" alt="Andreas Schulz im Gespräch mit einem Verleger an einem Messestand vor einer Wand mit Kriminalromanen" width="1200" height="900"></figure>
         </div>
         <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
           <div>
