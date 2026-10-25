@@ -161,6 +161,7 @@ header.scrolled{border-bottom-color:var(--line)}
 .tl-card.land img{aspect-ratio:auto}
 .tl-card figure.duo{display:grid; grid-template-columns:2.3fr 1fr; gap:12px; align-items:center}
 .tl-card figure.duo figcaption{grid-column:1/-1}
+.tl-card figure.duo img.free{border-radius:0; filter:none}
 .tl-card > *{min-width:0}
 .tl-card .y{font-size:clamp(48px,7vw,84px); font-weight:300; line-height:1; letter-spacing:-.03em; color:var(--brass); font-variant-numeric:tabular-nums}
 .tl-card h3{font-size:clamp(22px,2.6vw,30px); margin-top:14px}
@@ -473,30 +474,38 @@ footer a:hover{color:var(--ink)}
         <div class="cases-head">
           <p class="cases-label">Fallbeispiele</p>
           <div class="case-nav">
-            <span class="case-count" id="case-count" aria-live="polite">01 / 02</span>
+            <span class="case-count" id="case-count" aria-live="polite">01 / 03</span>
             <button type="button" id="case-prev" aria-label="Vorheriges Beispiel">←</button>
             <button type="button" id="case-next" aria-label="Nächstes Beispiel">→</button>
           </div>
         </div>
         <div class="case-track" id="case-track" tabindex="0">
-          <article class="case" aria-roledescription="Folie" aria-label="1 von 2">
-            <figure><img src="img/fred-app.jpg" alt="Startansicht der Radreise-App FRED von Donau Touristik mit persönlicher Reise und Tagesroute" width="637" height="598" loading="lazy"></figure>
-            <div class="case-body">
-              <p class="case-kicker">Donau Touristik · Radreise-App „FRED“</p>
-              <b class="case-num"><span class="count" data-to="50000" data-suffix="+">50.000+</span></b>
-              <p class="case-text">Auslieferungen der Radreise-App „FRED“ an die Donau Touristik GmbH, von der TourCont AG entwickelt und von mir mitgestaltet.</p>
-            </div>
-          </article>
-          <article class="case" aria-roledescription="Folie" aria-label="2 von 2">
+          <article class="case" aria-roledescription="Folie" aria-label="1 von 3">
             <figure><img src="img/go-vista.jpg" alt="Drei Go-Vista-Reiseführer Hamburg, Portugal und Paris, jeweils mit dem Hinweis inklusive Travel-App" width="960" height="887" loading="lazy"></figure>
             <div class="case-body">
               <p class="case-kicker">ALDI SÜD · Go Vista Travel-App</p>
-              <b class="case-num"><span class="count" data-to="200000" data-suffix="+">200.000+</span></b>
-              <p class="case-text">Auslieferungen der Go Vista Travel-App an ALDI SÜD, ebenfalls von der TourCont AG.</p>
+              <b class="case-num"><span class="count" data-to="250000" data-suffix="+">250.000+</span></b>
+              <p class="case-text">Auslieferungen der Go Vista Travel-App an ALDI SÜD, entwickelt von der TourCont AG.</p>
+            </div>
+          </article>
+          <article class="case" aria-roledescription="Folie" aria-label="2 von 3">
+            <figure><img src="img/fred-app.jpg" alt="Startansicht der Radreise-App FRED von Donau Touristik mit persönlicher Reise und Tagesroute" width="637" height="598" loading="lazy"></figure>
+            <div class="case-body">
+              <p class="case-kicker">Donau Touristik · Radreise-App „FRED“</p>
+              <b class="case-num"><span class="count" data-to="40000" data-suffix="+">40.000+</span></b>
+              <p class="case-text">Auslieferungen der Radreise-App „FRED“ an die Donau Touristik GmbH, von der TourCont AG entwickelt und von mir mitgestaltet.</p>
+            </div>
+          </article>
+          <article class="case" aria-roledescription="Folie" aria-label="3 von 3">
+            <figure><img src="img/dertour-katalog.jpg" alt="Doppelseite aus einem DERTOUR-Katalog mit Rundreisen und dem Hinweis auf 1000 Places to see before you die" width="1365" height="965" loading="lazy" style="object-position:100% 50%"></figure>
+            <div class="case-body">
+              <p class="case-kicker">DERTOUR · Konzept „Travel the book“</p>
+              <b class="case-num">ca. <span class="count" data-to="20" data-suffix=" Mio.">20 Mio.</span></b>
+              <p class="case-text">Medienkontakte für 70 Touren in Europa und fernen Ländern mit Inhalten aus „1000 Places to see …“. Präsentiert in 20 DERTOUR-Katalogen mit rund 15 Millionen Auflage, unter Einbindung der Expedienten in rund 1.000 Reisebüros und mit einem Gewinnspiel.</p>
             </div>
           </article>
         </div>
-        <div class="case-dots" id="case-dots" aria-hidden="true"><span class="on"></span><span></span></div>
+        <div class="case-dots" id="case-dots" aria-hidden="true"><span class="on"></span><span></span><span></span></div>
       </div>
       <p class="indep">ABS Beratung ist unabhängig. Ich empfehle die Lösung, die zu Ihrem Unternehmen passt.</p>
     </div>
@@ -713,8 +722,8 @@ footer a:hover{color:var(--ink)}
     {y:'1972', img:'img/tl-1972.jpg', cap:'', alt:'Schwarzweißfoto aus der DuMont-Zeit, frühe 1970er Jahre', t:'DuMont Buchverlag', p:'Ausbildung zum Verlagshersteller, danach Kunstbuch- und internationale Katalogproduktionen. Künstler-Begegnungen mit Max Ernst, Viktor Vasarely, Gerhard Richter u. v. a. Ab 1980 Herausgeber der Reihe „Richtig Reisen“.'},
     {y:'1977', img:'img/tl-1977.jpg', pos:'50% 40%', cap:'', alt:'Schwarzweißfoto: drei Personen bei der Arbeit an einem Schreibtisch voller Fotos und Manuskripte in einem Verlagsbüro', t:'Gründung des Vista Point Verlages', p:'Gemeinsam mit Gudrun Wasmuth und Horst Schmidt-Brümmer in Köln gegründet. Erste Publikation: „Frauenkunst USA“.'},
     {y:'1988', img:'img/tl-1988.jpg', fit:'contain', cap:'„Südwesten USA“ von Horst Schmidt-Brümmer und Karl Teuschl, Vista Point Reisen', alt:'Titel des Reiseführers Südwesten USA von Vista Point Reisen', t:'Eigene Reiseführerreihe', p:'Farbfotos und detaillierte Routenplanung, erstmals im Vierfarbdruck in Deutschland. Der wirtschaftliche Durchbruch im Buchhandel.'},
-    {y:'1994', img:'img/tl-1994.jpg', img2:'img/tl-1994-dertour.jpg', alt2:'DERTOUR-Dekoplakat Weltenbummler aufgepasst: Die schönsten Sehnsuchtsorte aus dem Bestseller 1000 Places to see, mit Reiseangeboten und dem Buch', land:true, cap:'Rechts: DERTOUR-Deko mit Reisen aus „1000 Places to see …“', alt:'Farbfoto aus den 1990er Jahren: Andreas Schulz mit einem Gesprächspartner vor einer Glasbausteinwand', t:'Partner von DERTOUR', p:'Erster Kontakt auf der ITB, daraus über 23 Jahre Premium-Partnerschaft. „Travel the book“ lief in 23 Katalogen.'},
-    {y:'2015', img:'img/tl-2015.jpg', pos:'50% 35%', cap:'', alt:'Andreas Schulz mit zwei Gesprächspartnerinnen', t:'1000 Places to see before you die', p:'Der Weltbestseller kommt zu Vista Point. Über drei Millionen verkaufte Exemplare im deutschsprachigen Raum.'},
+    {y:'1994', img:'img/tl-1994.jpg', img2:'img/tl-1994-dertour.jpg', cols:'1.9fr 1fr', alt2:'DERTOUR-Dekoplakat Weltenbummler aufgepasst: Die schönsten Sehnsuchtsorte aus dem Bestseller 1000 Places to see, mit Reiseangeboten und dem Buch', land:true, cap:'Rechts: DERTOUR-Deko mit Reisen aus „1000 Places to see …“', alt:'Farbfoto aus den 1990er Jahren: Andreas Schulz mit einem Gesprächspartner vor einer Glasbausteinwand', t:'Partner von DERTOUR', p:'Erster Kontakt auf der ITB, daraus über 23 Jahre Premium-Partnerschaft. „Travel the book“ lief in 23 Katalogen.'},
+    {y:'2015', img:'img/tl-2015.jpg', img2:'img/tl-2015-buch.jpg', img2left:true, cols:'0.68fr 1fr', land:true, cap:'', alt:'Andreas Schulz in New York mit der Autorin Patricia Schultz und der Verlegerin Carolan Workman', alt2:'Buch 1000 Places To See Before You Die, deutsche Ausgabe bei Vista Point', t:'1000 Places to see before you die', p:'Der Weltbestseller kommt zu Vista Point. Über drei Millionen verkaufte Exemplare im deutschsprachigen Raum. Mit der Autorin Patricia Schultz und der Verlegerin Carolan Workman in New York.'},
     {y:'2020', img:'img/tl-2020.jpg', land:true, cap:'', alt:'Farbfoto: Andreas Schulz und drei Partner stoßen an einem gedeckten Tisch mit Sekt an', t:'TourCont AG', p:'Gründung in München mit Markus Schreiber und Klaus Weise, Kollegen aus der Softwareentwicklung. Digitalisierte Verlagsinhalte fließen direkt in Reise-Apps wie „FRED“ von Donau Touristik.'},
     {y:'Heute', img:'img/tl-heute.jpg', cap:'', alt:'Grafik: 1000 Places To See Before You Die Deutschland und Reise-App, verbunden mit einem Pfeil, Vom Buch in die App', t:'ABS Beratung', p:'Strategische Beratung für Verlage, Reiseunternehmen und Technologiepartner.'}
   ];
@@ -738,7 +747,7 @@ footer a:hover{color:var(--ink)}
     btns.forEach(function(b, j){ b.setAttribute('aria-selected', j === k ? 'true' : 'false'); b.tabIndex = j === k ? 0 : -1; b.classList.toggle('done', j < k); });
     var bb = btns[k]; fill.style.width = (bb.offsetLeft + 8) + 'px';
     card.className = 'tl-card' + (st.img ? (st.land ? ' land' : '') : ' noimg'); card.setAttribute('aria-labelledby', bb.id);
-    card.innerHTML = '<div><div class="y">' + st.y + '</div><h3>' + st.t + '</h3><p>' + st.p + '</p></div>' + (st.img ? '<figure' + (st.fit === 'contain' ? ' class="contain"' : (st.img2 ? ' class="duo"' : '')) + '><img src="' + st.img + '"' + (st.pos ? ' style="object-position:' + st.pos + '"' : '') + ' alt="' + st.alt + '" width="800" height="1000">' + (st.img2 ? '<img src="' + st.img2 + '" alt="' + st.alt2 + '" width="696" height="1300">' : '') + (st.cap ? '<figcaption>' + st.cap + '</figcaption>' : '') + '</figure>' : '');
+    card.innerHTML = '<div><div class="y">' + st.y + '</div><h3>' + st.t + '</h3><p>' + st.p + '</p></div>' + (st.img ? '<figure' + (st.fit === 'contain' ? ' class="contain"' : (st.img2 ? ' class="duo" style="grid-template-columns:' + st.cols + '"' : '')) + '>' + (function(){ var a = '<img src="' + st.img + '"' + (st.pos ? ' style="object-position:' + st.pos + '"' : '') + ' alt="' + st.alt + '" width="800" height="1000">', b = st.img2 ? '<img class="' + (st.img2left ? 'free' : '') + '" src="' + st.img2 + '" alt="' + st.alt2 + '" width="696" height="1300">' : ''; return st.img2left ? b + a : a + b; })() + (st.cap ? '<figcaption>' + st.cap + '</figcaption>' : '') + '</figure>' : '');
     void card.offsetWidth; card.classList.add('swap');
     prev.disabled = k === 0; next.disabled = k === stations.length - 1;
     var sl = bb.offsetLeft - parseFloat(getComputedStyle(yearsEl).paddingLeft || 0); if (yearsEl.scrollWidth > yearsEl.clientWidth) yearsEl.scrollTo({left: sl, behavior: reduce ? 'auto' : 'smooth'});
