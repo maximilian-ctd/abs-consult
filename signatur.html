@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>E-Mail-Signatur · ABS Beratung</title>
+<style>body{margin:0;background:#F5F4F0;color:#1D2028;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5}.w{max-width:760px;margin:0 auto;padding:40px 16px}h1{font-size:22px;font-weight:600;margin:0 0 6px}.box{background:#fff;border:1px solid #DDD9D0;border-radius:10px;padding:28px;margin:24px 0;overflow-x:auto}button{font:inherit;background:#1D2028;color:#F5F4F0;border:0;border-radius:999px;padding:11px 22px;cursor:pointer}#ok{margin-left:12px;color:#A88B5C}ol{padding-left:20px}li{margin:6px 0}h2{font-size:16px;margin:28px 0 4px}</style></head>
+<body><div class="w">
+<h1>E-Mail-Signatur ABS Beratung</h1>
+<p>Auf „Signatur kopieren“ klicken und die Signatur in den Einstellungen des Mailprogramms einfügen.</p>
+<div class="box"><div id="sig"><table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;">
+<tr>
+<td style="padding:0 22px 0 0;vertical-align:middle;"><a href="https://www.abs-beratung.com/" style="text-decoration:none;"><img src="https://www.abs-beratung.com/img/logo/abs-beratung-logo-dunkel.png" width="140" height="49" alt="ABS Beratung · Andreas Schulz" style="display:block;border:0;width:140px;height:49px;"></a></td>
+<td style="border-left:1px solid #1D2028;padding:2px 0 2px 22px;vertical-align:middle;">
+<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+<tr><td style="padding:3px 10px 3px 0;vertical-align:middle;"><img src="https://www.abs-beratung.com/img/signatur/phone.png" width="16" height="16" alt="" style="display:block;border:0;"></td><td style="padding:3px 0;vertical-align:middle;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:18px;color:#1D2028;"><a href="tel:+491738571308" style="color:#1D2028;text-decoration:none;">+49 173 8571308</a></td></tr>
+<tr><td style="padding:3px 10px 3px 0;vertical-align:middle;"><img src="https://www.abs-beratung.com/img/signatur/mail.png" width="16" height="16" alt="" style="display:block;border:0;"></td><td style="padding:3px 0;vertical-align:middle;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:18px;color:#1D2028;"><a href="mailto:as@abs-beratung.com" style="color:#1D2028;text-decoration:none;">as@abs-beratung.com</a></td></tr>
+<tr><td style="padding:3px 10px 3px 0;vertical-align:middle;"><img src="https://www.abs-beratung.com/img/signatur/web.png" width="16" height="16" alt="" style="display:block;border:0;"></td><td style="padding:3px 0;vertical-align:middle;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:18px;color:#1D2028;"><a href="https://www.abs-beratung.com/" style="color:#1D2028;text-decoration:none;">www.abs-beratung.com</a></td></tr>
+<tr><td style="padding:3px 10px 3px 0;vertical-align:middle;"><img src="https://www.abs-beratung.com/img/signatur/pin.png" width="16" height="16" alt="" style="display:block;border:0;"></td><td style="padding:3px 0;vertical-align:middle;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:18px;color:#1D2028;"><a href="https://maps.google.com/?q=Markomannenstra%C3%9Fe+18,+50679+K%C3%B6ln" style="color:#1D2028;text-decoration:none;">Markomannenstraße 18, 50679 Köln</a></td></tr>
+</table>
+</td>
+</tr>
+<tr><td colspan="2" style="padding:14px 0 0 0;"><table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse;"><tr><td style="border-top:1px solid #9A9A9A;font-size:1px;line-height:1px;">&nbsp;</td></tr></table></td></tr>
+<tr><td colspan="2" align="right" style="padding:10px 0 0 0;"><a href="https://www.linkedin.com/in/andreas-schulz-23a8a221/" style="text-decoration:none;"><img src="https://www.abs-beratung.com/img/signatur/linkedin.png" width="24" height="24" alt="LinkedIn" style="display:block;border:0;"></a></td></tr>
+</table></div></div>
+<button id="copy" type="button">Signatur kopieren</button><span id="ok"></span>
+<h2>Apple Mail (Mac)</h2><ol><li>Mail öffnen, dann Mail › Einstellungen › Signaturen.</li><li>Das Konto as@abs-beratung.com wählen und mit „+“ eine neue Signatur anlegen.</li><li>Den Haken bei „Immer meiner Standardschrift entsprechen“ entfernen und die Signatur mit Cmd+V einfügen.</li></ol>
+<h2>Outlook</h2><ol><li>Outlook für Mac: Einstellungen › Signaturen. Outlook für Windows: Datei › Optionen › E-Mail › Signaturen.</li><li>Neue Signatur anlegen und mit Cmd+V bzw. Strg+V einfügen.</li></ol>
+<h2>STRATO Webmail</h2><ol><li>Einstellungen › E-Mail › Signaturen, neue Signatur anlegen.</li><li>Im Editor einfügen und speichern.</li></ol>
+</div>
+<script>
+document.getElementById('copy').addEventListener('click',function(){
+  var el=document.getElementById('sig'), ok=document.getElementById('ok');
+  function sel(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);}
+  function fallback(){sel();try{document.execCommand('copy');ok.textContent='Kopiert';}catch(e){ok.textContent='Markiert, bitte Cmd+C drücken';}}
+  try{
+    if(window.ClipboardItem && navigator.clipboard && navigator.clipboard.write){
+      navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([el.innerHTML],{type:'text/html'}),'text/plain':new Blob([el.innerText],{type:'text/plain'})})]).then(function(){ok.textContent='Kopiert';},fallback);
+    } else { fallback(); }
+  }catch(e){ fallback(); }
+});
+</script></body></html>
