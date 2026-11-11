@@ -50,10 +50,10 @@ h2{font-size:clamp(32px,4.2vw,50px); margin-top:16px}
 header{position:sticky; top:env(safe-area-inset-top,0px); z-index:20; background:color-mix(in srgb,var(--bg) 88%,transparent); backdrop-filter:saturate(1.2) blur(10px); border-bottom:1px solid transparent; transition:border-color .3s}
 header.scrolled{border-bottom-color:var(--line)}
 .bar{display:flex; align-items:center; justify-content:space-between; gap:20px; padding-block:14px}
-.brand{text-decoration:none; line-height:1}
+.brand{text-decoration:none; line-height:1; display:inline-block}
 .brand b{display:block; font-weight:600; font-size:20px; letter-spacing:.03em}
 .brand b em{font-style:normal; font-weight:300; letter-spacing:0}
-.brand span{display:block; font-size:10px; letter-spacing:.26em; text-transform:uppercase; color:var(--muted); margin-top:5px}
+.brand span{display:inline-block; white-space:nowrap; font-size:10px; letter-spacing:.26em; text-transform:uppercase; color:var(--muted); margin-top:5px}
 .bar nav{display:flex; gap:28px}
 .bar nav a{text-decoration:none; font-size:14px; color:var(--muted); position:relative; padding-block:4px}
 .bar nav a::after{content:""; position:absolute; left:0; right:0; bottom:-2px; height:1px; background:var(--brass); transform:scaleX(0); transform-origin:left; transition:transform .25s ease}
@@ -796,6 +796,21 @@ footer a:hover{color:var(--ink)}
     track.addEventListener('keydown', function(e){ if (e.key === 'ArrowRight'){ e.preventDefault(); go(cur + 1); } if (e.key === 'ArrowLeft'){ e.preventDefault(); go(cur - 1); } });
     track.addEventListener('scroll', function(){ var k = Math.round(track.scrollLeft / (slides[0].offsetWidth + 20)); if (k !== cur){ cur = k; ui(); } }, {passive:true});
     ui();
+  })();
+
+  (function(){
+    var b = document.querySelector('.brand b'), sp = document.querySelector('.brand span');
+    if (!b || !sp) return;
+    function fit(){
+      sp.style.letterSpacing = '0px'; sp.style.marginRight = '0px';
+      var n = sp.textContent.length, diff = b.getBoundingClientRect().width - sp.getBoundingClientRect().width;
+      if (n < 2 || diff <= 0) return;
+      var ls = diff / (n - 1);
+      sp.style.letterSpacing = ls + 'px'; sp.style.marginRight = (-ls) + 'px';
+    }
+    fit();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+    addEventListener('resize', fit);
   })();
 })();
 </script>
